@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-28",
+  "problem": {
+    "title": "Show HN: We built open OpenRouter that turns usage into a better model",
+    "description": "Hi HN, we built an open source model gateway. It&#x27;s a single place to manage our own self hosted, frontier, and open source models in one place.<p>It\u2019s is rust native, built for concurrency, and implements all the config quirks across models and providers (streaming formats, tool calls, model parameters, rate limits, and different error behavior).<p>The gateway adds under 1 ms for BYOK requests and under 2 ms when Experiential supplies the provider key. It has every major inference provider,",
+    "source": "Hacker News",
+    "url": "https://github.com/experientiallabs/experiential",
+    "category": "ai_ml",
+    "keywords": [
+      "show",
+      "built",
+      "open",
+      "openrouter",
+      "turns",
+      "usage",
+      "into",
+      "better",
+      "model",
+      "built"
+    ],
+    "priority": 34,
+    "created_at": "2026-08-28T03:18:35",
+    "reason": "Trending problem in ai_ml category"
+  },
+  "solution_type": "fullstack",
+  "source": "Hacker News",
+  "category": "ai_ml"
+}

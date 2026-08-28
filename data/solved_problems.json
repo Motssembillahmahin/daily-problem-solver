@@ -1,5 +1,23 @@
 {
-  "problems": [],
+  "problems": [
+    {
+      "date": "2026-08-28",
+      "title": "Show HN: We built open OpenRouter that turns usage into a better model",
+      "keywords": [
+        "show",
+        "built",
+        "open",
+        "openrouter",
+        "turns",
+        "usage",
+        "into",
+        "better",
+        "model",
+        "built"
+      ],
+      "type": "fullstack"
+    }
+  ],
   "metadata": {
     "created": "2026-08-28",
     "version": "1.0.0",

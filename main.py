@@ -76,6 +76,7 @@ def run():
     date_str = datetime.now().strftime("%Y-%m-%d")
     problem_dir = SOLUTIONS_DIR / date_str
     problem_dir.mkdir(parents=True, exist_ok=True)
+    (problem_dir / "docs").mkdir(exist_ok=True)
 
     # Save problem metadata
     with open(problem_dir / "metadata.json", "w") as f:
