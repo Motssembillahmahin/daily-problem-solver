@@ -28,6 +28,11 @@ class SolutionGenerator:
             "git_helper": self._git_helper,
             "api_tester": self._api_tester,
             "password_generator": self._password_generator,
+            "health_tracker": self._health_tracker,
+            "note_taker": self._note_taker,
+            "pomodoro_timer": self._pomodoro_timer,
+            "budget_tracker": self._budget_tracker,
+            "bookmark_manager": self._bookmark_manager,
             "text_summarizer": self._text_summarizer,
             "image_compressor": self._image_compressor,
             "email_validator": self._email_validator,
@@ -45,12 +50,14 @@ class SolutionGenerator:
         keywords = problem.get("keywords", [])
         combined = f"{title} {description} {' '.join(keywords)}".lower()
 
-        # Map problems to solution types
+        # Map problems to solution types (order matters - most specific first)
+        if any(w in combined for w in ["health", "fitness", "workout", "exercise", "calorie", "step", "medical"]):
+            return "health_tracker"
         if any(w in combined for w in ["file", "organize", "sort", "folder"]):
             return "file_organizer"
         if any(w in combined for w in ["url", "short", "link", "redirect"]):
             return "url_shortener"
-        if any(w in combined for w in ["todo", "task", "list", "checklist"]):
+        if any(w in combined for w in ["todo", "task", "list", "checklist", "project"]):
             return "todo_api"
         if any(w in combined for w in ["weather", "forecast", "temperature"]):
             return "weather_app"
@@ -70,13 +77,13 @@ class SolutionGenerator:
             return "api_tester"
         if any(w in combined for w in ["password", "secure", "generate"]):
             return "password_generator"
-        if any(w in combined for w in ["summarize", "text", "content"]):
+        if any(w in combined for w in ["summarize", "text", "content", "article"]):
             return "text_summarizer"
         if any(w in combined for w in ["image", "compress", "resize", "photo"]):
             return "image_compressor"
         if any(w in combined for w in ["email", "valid", "verify"]):
             return "email_validator"
-        if any(w in combined for w in ["log", "analyze", "monitor"]):
+        if any(w in combined for w in ["log", "analyze", "monitor", "server"]):
             return "log_analyzer"
         if any(w in combined for w in ["backup", "sync", "copy"]):
             return "backup_tool"
@@ -84,6 +91,14 @@ class SolutionGenerator:
             return "code_formatter"
         if any(w in combined for w in ["env", "environment", "config", "variable"]):
             return "env_manager"
+        if any(w in combined for w in ["note", "journal", "diary", "write"]):
+            return "note_taker"
+        if any(w in combined for w in ["timer", "pomodoro", "focus", "concentrate"]):
+            return "pomodoro_timer"
+        if any(w in combined for w in ["budget", "expense", "money", "finance", "spend"]):
+            return "budget_tracker"
+        if any(w in combined for w in ["bookmark", "save", "read later"]):
+            return "bookmark_manager"
 
         # Default: create a useful utility
         return "json_formatter"
@@ -1171,6 +1186,732 @@ python validate_email.py user@example.com
 
     def _code_formatter(self, problem: Dict) -> Dict[str, str]:
         return self._json_formatter(problem)
+
+    def _health_tracker(self, problem: Dict) -> Dict[str, str]:
+        """Generate a health tracking app."""
+        return {
+            "health_tracker.py": '''#!/usr/bin/env python3
+"""
+Health Tracker - Track daily health metrics
+Usage: python health_tracker.py [command] [args]
+Commands:
+  log <type> <value>  - Log a metric (water, steps, sleep, weight)
+  show [date]         - Show metrics for date (default: today)
+  stats               - Show weekly statistics
+  export              - Export to CSV
+"""
+
+import json
+import sys
+from datetime import datetime, timedelta
+from pathlib import Path
+from collections import defaultdict
+
+DATA_FILE = "health_data.json"
+
+def load_data():
+    if Path(DATA_FILE).exists():
+        with open(DATA_FILE) as f:
+            return json.load(f)
+    return {"metrics": []}
+
+def save_data(data):
+    with open(DATA_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+def log_metric(metric_type: str, value: float):
+    """Log a health metric."""
+    data = load_data()
+    entry = {
+        "date": datetime.now().strftime("%Y-%m-%d"),
+        "time": datetime.now().strftime("%H:%M:%S"),
+        "type": metric_type.lower(),
+        "value": value
+    }
+    data["metrics"].append(entry)
+    save_data(data)
+    print(f"Logged: {metric_type} = {value}")
+
+def show_metrics(date: str = None):
+    """Show metrics for a specific date."""
+    data = load_data()
+    if date is None:
+        date = datetime.now().strftime("%Y-%m-%d")
+    
+    metrics = [m for m in data["metrics"] if m["date"] == date]
+    
+    if not metrics:
+        print(f"No metrics found for {date}")
+        return
+    
+    print(f"\\nHealth Metrics for {date}:")
+    print("=" * 40)
+    
+    grouped = defaultdict(list)
+    for m in metrics:
+        grouped[m["type"]].append(m["value"])
+    
+    for metric_type, values in grouped.items():
+        total = sum(values)
+        avg = total / len(values)
+        print(f"  {metric_type.title()}: {total:.1f} (avg: {avg:.1f})")
+
+def show_stats():
+    """Show weekly statistics."""
+    data = load_data()
+    today = datetime.now()
+    week_ago = today - timedelta(days=7)
+    
+    week_metrics = [
+        m for m in data["metrics"]
+        if datetime.strptime(m["date"], "%Y-%m-%d") >= week_ago
+    ]
+    
+    if not week_metrics:
+        print("No data for the past week")
+        return
+    
+    print("\\nWeekly Statistics:")
+    print("=" * 40)
+    
+    grouped = defaultdict(list)
+    for m in week_metrics:
+        grouped[m["type"]].append(m["value"])
+    
+    for metric_type, values in grouped.items():
+        total = sum(values)
+        avg = total / len(values)
+        print(f"  {metric_type.title()}:")
+        print(f"    Total: {total:.1f}")
+        print(f"    Average: {avg:.1f}")
+        print(f"    Entries: {len(values)}")
+
+def export_csv():
+    """Export data to CSV."""
+    data = load_data()
+    
+    if not data["metrics"]:
+        print("No data to export")
+        return
+    
+    filename = f"health_data_{datetime.now().strftime('%Y%m%d')}.csv"
+    
+    with open(filename, "w") as f:
+        f.write("date,time,type,value\\n")
+        for m in data["metrics"]:
+            f.write(f"{m['date']},{m['time']},{m['type']},{m['value']}\\n")
+    
+    print(f"Exported to {filename}")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print(__doc__)
+        sys.exit(1)
+    
+    command = sys.argv[1]
+    
+    if command == "log" and len(sys.argv) >= 4:
+        log_metric(sys.argv[2], float(sys.argv[3]))
+    elif command == "show":
+        date = sys.argv[2] if len(sys.argv) > 2 else None
+        show_metrics(date)
+    elif command == "stats":
+        show_stats()
+    elif command == "export":
+        export_csv()
+    else:
+        print(__doc__)
+''',
+            "requirements.txt": "# No external dependencies",
+            "README.md": '''# Health Tracker
+
+Track daily health metrics like water intake, steps, sleep, and weight.
+
+## Usage
+
+```bash
+# Log metrics
+python health_tracker.py log water 8
+python health_tracker.py log steps 10000
+python health_tracker.py log sleep 7.5
+python health_tracker.py log weight 70
+
+# View today's metrics
+python health_tracker.py show
+
+# View specific date
+python health_tracker.py show 2026-08-28
+
+# Weekly statistics
+python health_tracker.py stats
+
+# Export to CSV
+python health_tracker.py export
+```
+
+## Metrics Tracked
+
+- Water (glasses)
+- Steps
+- Sleep (hours)
+- Weight (kg)
+'''
+        }
+
+    def _note_taker(self, problem: Dict) -> Dict[str, str]:
+        """Generate a note-taking app."""
+        return {
+            "notes.py": '''#!/usr/bin/env python3
+"""
+Note Taker - Simple CLI note-taking app
+Usage: python notes.py [command] [args]
+Commands:
+  add <title> <content>  - Add a new note
+  list                   - List all notes
+  show <id>              - Show a specific note
+  search <query>         - Search notes
+  delete <id>            - Delete a note
+"""
+
+import json
+import sys
+from datetime import datetime
+from pathlib import Path
+
+NOTES_FILE = "notes.json"
+
+def load_notes():
+    if Path(NOTES_FILE).exists():
+        with open(NOTES_FILE) as f:
+            return json.load(f)
+    return {"notes": [], "next_id": 1}
+
+def save_notes(data):
+    with open(NOTES_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+def add_note(title: str, content: str):
+    """Add a new note."""
+    data = load_notes()
+    note = {
+        "id": data["next_id"],
+        "title": title,
+        "content": content,
+        "created": datetime.now().isoformat(),
+        "updated": datetime.now().isoformat()
+    }
+    data["notes"].append(note)
+    data["next_id"] += 1
+    save_notes(data)
+    print(f"Note {note['id']} added: {title}")
+
+def list_notes():
+    """List all notes."""
+    data = load_notes()
+    if not data["notes"]:
+        print("No notes found")
+        return
+    
+    print("\\nYour Notes:")
+    print("=" * 50)
+    for note in data["notes"]:
+        print(f"  [{note['id']}] {note['title']}")
+        print(f"      Created: {note['created'][:10]}")
+        print()
+
+def show_note(note_id: int):
+    """Show a specific note."""
+    data = load_notes()
+    for note in data["notes"]:
+        if note["id"] == note_id:
+            print(f"\\nNote #{note['id']}: {note['title']}")
+            print(f"Created: {note['created']}")
+            print(f"Updated: {note['updated']}")
+            print("\\n" + "-" * 50)
+            print(note["content"])
+            print("-" * 50)
+            return
+    print(f"Note {note_id} not found")
+
+def search_notes(query: str):
+    """Search notes by content."""
+    data = load_notes()
+    results = []
+    
+    for note in data["notes"]:
+        if (query.lower() in note["title"].lower() or
+            query.lower() in note["content"].lower()):
+            results.append(note)
+    
+    if not results:
+        print(f"No notes matching '{query}'")
+        return
+    
+    print(f"\\nSearch results for '{query}':")
+    print("=" * 50)
+    for note in results:
+        print(f"  [{note['id']}] {note['title']}")
+        print()
+
+def delete_note(note_id: int):
+    """Delete a note."""
+    data = load_notes()
+    data["notes"] = [n for n in data["notes"] if n["id"] != note_id]
+    save_notes(data)
+    print(f"Note {note_id} deleted")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print(__doc__)
+        sys.exit(1)
+    
+    command = sys.argv[1]
+    
+    if command == "add" and len(sys.argv) >= 4:
+        add_note(sys.argv[2], " ".join(sys.argv[3:]))
+    elif command == "list":
+        list_notes()
+    elif command == "show" and len(sys.argv) >= 3:
+        show_note(int(sys.argv[2]))
+    elif command == "search" and len(sys.argv) >= 3:
+        search_notes(" ".join(sys.argv[2:]))
+    elif command == "delete" and len(sys.argv) >= 3:
+        delete_note(int(sys.argv[2]))
+    else:
+        print(__doc__)
+''',
+            "requirements.txt": "# No external dependencies",
+            "README.md": '''# Note Taker
+
+Simple CLI note-taking app.
+
+## Usage
+
+```bash
+python notes.py add "My Note" "This is the content"
+python notes.py list
+python notes.py show 1
+python notes.py search "keyword"
+python notes.py delete 1
+```
+'''
+        }
+
+    def _pomodoro_timer(self, problem: Dict) -> Dict[str, str]:
+        """Generate a Pomodoro timer."""
+        return {
+            "pomodoro.py": '''#!/usr/bin/env python3
+"""
+Pomodoro Timer - Productivity timer
+Usage: python pomodoro.py [work_min] [break_min]
+"""
+
+import time
+import sys
+from datetime import datetime
+
+def countdown(minutes: int, label: str):
+    """Display countdown timer."""
+    total_seconds = minutes * 60
+    
+    print(f"\\n{label} - {minutes} minutes")
+    print("Press Ctrl+C to stop\\n")
+    
+    try:
+        for remaining in range(total_seconds, 0, -1):
+            mins, secs = divmod(remaining, 60)
+            print(f"\\r  {mins:02d}:{secs:02d} remaining", end="", flush=True)
+            time.sleep(1)
+        
+        print(f"\\r  00:00 - {label} complete!    ")
+        print("\\a")  # Bell sound
+        return True
+    
+    except KeyboardInterrupt:
+        print(f"\\n\\n  {label} stopped by user")
+        return False
+
+def run_pomodoro(work_min: int = 25, break_min: int = 5, sessions: int = 4):
+    """Run Pomodoro sessions."""
+    print("=" * 50)
+    print("  POMODORO TIMER")
+    print(f"  Work: {work_min} min | Break: {break_min} min | Sessions: {sessions}")
+    print("=" * 50)
+    
+    for session in range(1, sessions + 1):
+        print(f"\\n--- Session {session}/{sessions} ---")
+        
+        # Work phase
+        if not countdown(work_min, "WORK"):
+            break
+        
+        # Break phase (short break except after last session)
+        if session < sessions:
+            countdown(break_min, "BREAK")
+        else:
+            print("\\n  All sessions complete! Great work!")
+    
+    print("\\n" + "=" * 50)
+
+if __name__ == "__main__":
+    work = int(sys.argv[1]) if len(sys.argv) > 1 else 25
+    brk = int(sys.argv[2]) if len(sys.argv) > 2 else 5
+    
+    try:
+        run_pomodoro(work, brk)
+    except KeyboardInterrupt:
+        print("\\n\\nTimer stopped. Goodbye!")
+''',
+            "requirements.txt": "# No external dependencies",
+            "README.md": '''# Pomodoro Timer
+
+Productivity timer for focused work sessions.
+
+## Usage
+
+```bash
+# Default: 25 min work, 5 min break
+python pomodoro.py
+
+# Custom: 45 min work, 10 min break
+python pomodoro.py 45 10
+```
+
+## Features
+
+- Visual countdown display
+- Audio notification when complete
+- 4 work sessions by default
+- Ctrl+C to stop
+'''
+        }
+
+    def _budget_tracker(self, problem: Dict) -> Dict[str, str]:
+        """Generate a budget tracker."""
+        return {
+            "budget.py": '''#!/usr/bin/env python3
+"""
+Budget Tracker - Track income and expenses
+Usage: python budget.py [command] [args]
+Commands:
+  add <income|expense> <category> <amount> [description]
+  show                  - Show current month summary
+  history [month]       - Show transaction history
+  categories            - Show spending by category
+"""
+
+import json
+import sys
+from datetime import datetime
+from pathlib import Path
+from collections import defaultdict
+
+BUDGET_FILE = "budget_data.json"
+
+def load_data():
+    if Path(BUDGET_FILE).exists():
+        with open(BUDGET_FILE) as f:
+            return json.load(f)
+    return {"transactions": []}
+
+def save_data(data):
+    with open(BUDGET_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+def add_transaction(txn_type: str, category: str, amount: float, description: str = ""):
+    """Add a transaction."""
+    data = load_data()
+    transaction = {
+        "date": datetime.now().isoformat(),
+        "type": txn_type.lower(),
+        "category": category,
+        "amount": amount,
+        "description": description
+    }
+    data["transactions"].append(transaction)
+    save_data(data)
+    print(f"Added: {txn_type} - {category}: ${amount:.2f}")
+
+def show_summary():
+    """Show current month summary."""
+    data = load_data()
+    current_month = datetime.now().strftime("%Y-%m")
+    
+    month_txns = [
+        t for t in data["transactions"]
+        if t["date"][:7] == current_month
+    ]
+    
+    if not month_txns:
+        print("No transactions this month")
+        return
+    
+    income = sum(t["amount"] for t in month_txns if t["type"] == "income")
+    expenses = sum(t["amount"] for t in month_txns if t["type"] == "expense")
+    
+    print(f"\\nBudget Summary - {current_month}")
+    print("=" * 40)
+    print(f"  Income:   ${income:>10.2f}")
+    print(f"  Expenses: ${expenses:>10.2f}")
+    print(f"  Balance:  ${income - expenses:>10.2f}")
+    print()
+
+def show_history(month: str = None):
+    """Show transaction history."""
+    data = load_data()
+    
+    if month is None:
+        month = datetime.now().strftime("%Y-%m")
+    
+    txns = [t for t in data["transactions"] if t["date"][:7] == month]
+    
+    if not txns:
+        print(f"No transactions for {month}")
+        return
+    
+    print(f"\\nTransactions - {month}")
+    print("=" * 60)
+    
+    for t in txns:
+        icon = "+" if t["type"] == "income" else "-"
+        print(f"  {t['date'][:10]} {icon} {t['category']:15} ${t['amount']:>8.2f}  {t.get('description', '')}")
+
+def show_categories():
+    """Show spending by category."""
+    data = load_data()
+    current_month = datetime.now().strftime("%Y-%m")
+    
+    expenses = [
+        t for t in data["transactions"]
+        if t["date"][:7] == current_month and t["type"] == "expense"
+    ]
+    
+    if not expenses:
+        print("No expenses this month")
+        return
+    
+    by_category = defaultdict(float)
+    for t in expenses:
+        by_category[t["category"]] += t["amount"]
+    
+    print(f"\\nSpending by Category - {current_month}")
+    print("=" * 40)
+    
+    for category, total in sorted(by_category.items(), key=lambda x: x[1], reverse=True):
+        print(f"  {category:15} ${total:>10.2f}")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print(__doc__)
+        sys.exit(1)
+    
+    command = sys.argv[1]
+    
+    if command == "add" and len(sys.argv) >= 5:
+        desc = " ".join(sys.argv[5:]) if len(sys.argv) > 5 else ""
+        add_transaction(sys.argv[2], sys.argv[3], float(sys.argv[4]), desc)
+    elif command == "show":
+        show_summary()
+    elif command == "history":
+        month = sys.argv[2] if len(sys.argv) > 2 else None
+        show_history(month)
+    elif command == "categories":
+        show_categories()
+    else:
+        print(__doc__)
+''',
+            "requirements.txt": "# No external dependencies",
+            "README.md": '''# Budget Tracker
+
+Track income and expenses by category.
+
+## Usage
+
+```bash
+# Add income
+python budget.py add income salary 5000 "Monthly salary"
+
+# Add expense
+python budget.py add expense food 45.50 "Groceries"
+
+# Show monthly summary
+python budget.py show
+
+# View history
+python budget.py history
+python budget.py history 2026-08
+
+# Spending by category
+python budget.py categories
+```
+'''
+        }
+
+    def _bookmark_manager(self, problem: Dict) -> Dict[str, str]:
+        """Generate a bookmark manager."""
+        return {
+            "bookmarks.py": '''#!/usr/bin/env python3
+"""
+Bookmark Manager - Save and organize bookmarks
+Usage: python bookmarks.py [command] [args]
+Commands:
+  add <url> [title] [tags]  - Add a bookmark
+  list [tag]                - List bookmarks (optionally filter by tag)
+  search <query>            - Search bookmarks
+  delete <id>               - Delete a bookmark
+  tags                      - List all tags
+"""
+
+import json
+import sys
+from datetime import datetime
+from pathlib import Path
+
+BOOKMARKS_FILE = "bookmarks.json"
+
+def load_data():
+    if Path(BOOKMARKS_FILE).exists():
+        with open(BOOKMARKS_FILE) as f:
+            return json.load(f)
+    return {"bookmarks": [], "next_id": 1}
+
+def save_data(data):
+    with open(BOOKMARKS_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+def add_bookmark(url: str, title: str = "", tags: str = ""):
+    """Add a bookmark."""
+    data = load_data()
+    bookmark = {
+        "id": data["next_id"],
+        "url": url,
+        "title": title or url,
+        "tags": [t.strip() for t in tags.split(",") if t.strip()],
+        "created": datetime.now().isoformat()
+    }
+    data["bookmarks"].append(bookmark)
+    data["next_id"] += 1
+    save_data(data)
+    print(f"Bookmark {bookmark['id']} added: {bookmark['title']}")
+
+def list_bookmarks(tag: str = None):
+    """List bookmarks."""
+    data = load_data()
+    bookmarks = data["bookmarks"]
+    
+    if tag:
+        bookmarks = [b for b in bookmarks if tag in b.get("tags", [])]
+    
+    if not bookmarks:
+        print("No bookmarks found")
+        return
+    
+    print("\\nYour Bookmarks:")
+    print("=" * 60)
+    for b in bookmarks:
+        tags = ", ".join(b.get("tags", []))
+        print(f"  [{b['id']}] {b['title']}")
+        print(f"      URL: {b['url']}")
+        if tags:
+            print(f"      Tags: {tags}")
+        print()
+
+def search_bookmarks(query: str):
+    """Search bookmarks."""
+    data = load_data()
+    results = []
+    
+    for b in data["bookmarks"]:
+        if (query.lower() in b["url"].lower() or
+            query.lower() in b["title"].lower() or
+            query.lower() in " ".join(b.get("tags", []))):
+            results.append(b)
+    
+    if not results:
+        print(f"No bookmarks matching '{query}'")
+        return
+    
+    print(f"\\nSearch results for '{query}':")
+    print("=" * 60)
+    for b in results:
+        print(f"  [{b['id']}] {b['title']}")
+        print(f"      {b['url']}")
+        print()
+
+def list_tags():
+    """List all tags."""
+    data = load_data()
+    all_tags = set()
+    for b in data["bookmarks"]:
+        all_tags.update(b.get("tags", []))
+    
+    if not all_tags:
+        print("No tags found")
+        return
+    
+    print("\\nAll Tags:")
+    print("=" * 40)
+    for tag in sorted(all_tags):
+        print(f"  - {tag}")
+
+def delete_bookmark(bookmark_id: int):
+    """Delete a bookmark."""
+    data = load_data()
+    data["bookmarks"] = [b for b in data["bookmarks"] if b["id"] != bookmark_id]
+    save_data(data)
+    print(f"Bookmark {bookmark_id} deleted")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print(__doc__)
+        sys.exit(1)
+    
+    command = sys.argv[1]
+    
+    if command == "add" and len(sys.argv) >= 3:
+        title = sys.argv[3] if len(sys.argv) > 3 else ""
+        tags = sys.argv[4] if len(sys.argv) > 4 else ""
+        add_bookmark(sys.argv[2], title, tags)
+    elif command == "list":
+        tag = sys.argv[2] if len(sys.argv) > 2 else None
+        list_bookmarks(tag)
+    elif command == "search" and len(sys.argv) >= 3:
+        search_bookmarks(" ".join(sys.argv[2:]))
+    elif command == "tags":
+        list_tags()
+    elif command == "delete" and len(sys.argv) >= 3:
+        delete_bookmark(int(sys.argv[2]))
+    else:
+        print(__doc__)
+''',
+            "requirements.txt": "# No external dependencies",
+            "README.md": '''# Bookmark Manager
+
+Save and organize bookmarks with tags.
+
+## Usage
+
+```bash
+# Add bookmark
+python bookmarks.py add https://example.com "Example Site" "reference,tools"
+
+# List all
+python bookmarks.py list
+
+# Filter by tag
+python bookmarks.py list tools
+
+# Search
+python bookmarks.py search "example"
+
+# List tags
+python bookmarks.py tags
+
+# Delete
+python bookmarks.py delete 1
+```
+'''
+        }
 
 
 def generate_solution(problem: Dict) -> Dict[str, Any]:

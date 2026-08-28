@@ -32,6 +32,32 @@
         "tools"
       ],
       "type": "json_formatter"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "Trending: digital health apps",
+      "keywords": [
+        "trending",
+        "digital",
+        "health",
+        "apps",
+        "commonly",
+        "discussed",
+        "tech",
+        "problem",
+        "digital",
+        "health"
+      ],
+      "type": "git_helper"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "Bootstrappable Builds: How and Why",
+      "keywords": [
+        "bootstrappable",
+        "builds"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {

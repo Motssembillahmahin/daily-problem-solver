@@ -1,64 +1,32 @@
-# JSON Formatter CLI
+# Health Tracker
 
-A working Python CLI tool to format and validate JSON files.
-
-## Problem
-
-People frequently need to format messy JSON files for readability or validation. Manual formatting is tedious and error-prone.
-
-## Solution
-
-A simple, working Python script that:
-- Formats JSON files with proper indentation
-- Validates JSON syntax
-- Sorts keys alphabetically (optional)
-- Reports file size after formatting
+Track daily health metrics like water intake, steps, sleep, and weight.
 
 ## Usage
 
 ```bash
-# Format a JSON file
-python format_json.py data.json
+# Log metrics
+python health_tracker.py log water 8
+python health_tracker.py log steps 10000
+python health_tracker.py log sleep 7.5
+python health_tracker.py log weight 70
 
-# Format with custom indent
-python format_json.py data.json --indent 4
+# View today's metrics
+python health_tracker.py show
 
-# Format with sorted keys
-python format_json.py data.json --sort
+# View specific date
+python health_tracker.py show 2026-08-28
+
+# Weekly statistics
+python health_tracker.py stats
+
+# Export to CSV
+python health_tracker.py export
 ```
 
-## How It Works
+## Metrics Tracked
 
-1. Reads JSON file
-2. Parses and validates JSON
-3. Formats with specified indentation
-4. Writes formatted output back to file
-
-## Files
-
-| File | Description |
-|------|-------------|
-| `format_json.py` | Main script - fully working |
-| `requirements.txt` | No dependencies needed |
-| `README.md` | This file |
-
-## Example
-
-Input (`messy.json`):
-```json
-{"name":"John","age":30,"city":"New York"}
-```
-
-After running `python format_json.py messy.json`:
-```json
-{
-  "age": 30,
-  "city": "New York",
-  "name": "John"
-}
-```
-
-## Source
-
-Problem identified from: Google Trends - AI automation tools category
-Date: 2026-08-28
+- Water (glasses)
+- Steps
+- Sleep (hours)
+- Weight (kg)
