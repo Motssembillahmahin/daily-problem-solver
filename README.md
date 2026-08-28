@@ -212,16 +212,10 @@ Edit `scripts/extractor.py` to add new categories.
 3. **Monitor data/solved_problems.json** for history
 4. **Customize scraping sources** based on your interests
 
-## 📝 License
-
-MIT License - Feel free to use and modify.
 
 ## 🙏 Acknowledgments
 
 - Built to maintain GitHub activity streak
 - Powered by local AI (Ollama)
 - Uses free APIs from Reddit, Hacker News, and Google Trends
----
 
-**Author:** Mahin (asmahin8@gmail.com)  
-**GitHub:** [@Motssembillahmahin](https://github.com/Motssembillahmahin)
