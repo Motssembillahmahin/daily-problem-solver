@@ -16,6 +16,22 @@
         "built"
       ],
       "type": "fullstack"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "Trending: AI automation tools",
+      "keywords": [
+        "trending",
+        "automation",
+        "tools",
+        "commonly",
+        "discussed",
+        "tech",
+        "problem",
+        "automation",
+        "tools"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {

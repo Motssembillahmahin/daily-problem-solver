@@ -2,7 +2,7 @@
 
 ## Overview
 
-This solution uses AI to solve: **Show HN: We built open OpenRouter that turns usage into a better model**
+This solution uses AI to solve: **Trending: AI automation tools**
 
 ## Agent Architecture
 

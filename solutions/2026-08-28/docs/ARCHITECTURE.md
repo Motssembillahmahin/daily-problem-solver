@@ -3,7 +3,7 @@
 ## System Overview
 
 This solution implements a full-stack application to solve:
-**Show HN: We built open OpenRouter that turns usage into a better model**
+**Trending: AI automation tools**
 
 ## High-Level Architecture
 

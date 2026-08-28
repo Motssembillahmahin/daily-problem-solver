@@ -11,7 +11,7 @@ from pathlib import Path
 from scripts.scraper import scrape_all_sources
 from scripts.extractor import extract_problems
 from scripts.dedup import check_uniqueness
-from scripts.solver import generate_solution
+from scripts.smart_solver import generate_solution
 from scripts.doc_generator import generate_documentation
 
 BASE_DIR = Path(__file__).parent
