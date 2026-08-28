@@ -21,29 +21,10 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Install Ollama
-        run: |
-          curl -fsSL https://ollama.com/install.sh | sh
-
-      - name: Pull AI Model
-        run: |
-          ollama pull llama3.2 &
-          sleep 10
-
-      - name: Start Ollama in background
-        run: |
-          ollama serve &
-          sleep 5
+          pip install requests scikit-learn fuzzywuzzy python-Levenshtein pytrends beautifulsoup4
 
       - name: Run Daily Solver
         env:
@@ -64,14 +45,8 @@ jobs:
           else
             git commit -m "🤖 daily: solve real-world problem ($DATE)
 
-            - Auto-generated solution by AI agents
+            - Auto-generated solution by smart solver
             - Problem sourced from trending discussions
-            - Full-stack implementation with Next.js + Python
-            - AI-powered solution using local LLM"
+            - Working Python CLI tool"
             git push
           fi
-
-      - name: Cleanup
-        if: always()
-        run: |
-          pkill ollama || true
