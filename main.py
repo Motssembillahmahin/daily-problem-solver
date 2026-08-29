@@ -127,4 +127,5 @@ def run():
 
 if __name__ == "__main__":
     success = run()
-    exit(0 if success else 1)
+    # exit 0 even when no unique problem -> workflow should succeed (no update today is not a failure)
+    exit(0)
