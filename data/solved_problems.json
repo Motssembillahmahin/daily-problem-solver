@@ -58,6 +58,23 @@
         "builds"
       ],
       "type": "json_formatter"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Launch HN: Almanac (YC S26) \u2013 AI that knows your company",
+      "keywords": [
+        "launch",
+        "almanac",
+        "s26",
+        "knows",
+        "company",
+        "x27",
+        "kushagra",
+        "one",
+        "three",
+        "founders"
+      ],
+      "type": "text_summarizer"
     }
   ],
   "metadata": {
