@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-01",
+  "problem": {
+    "title": "Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac with at ~12 tok/s",
+    "description": "I built slotstream, a way to run Qwen3.8-Flash-Next 4-bit on a low-memory mac starting from 16GB, a 125B parameter model that would need 100GB+ memory&#x2F;RAM, thanks to expert-offloading&#x2F;ssd-streaming. Easy to install&#x2F;update, and mac-native using MLX and Swift.<p>It ships with auto-mode, which makes a good tradeoff between memory usage and speed. I&#x27;ll be implementing and porting the MTP module for speculative decoding next",
+    "source": "Hacker News",
+    "url": "https://github.com/carloslfu/slotstream",
+    "category": "ai_ml",
+    "keywords": [
+      "show",
+      "running",
+      "104gb",
+      "qwen3",
+      "flash",
+      "next",
+      "48gb",
+      "mac",
+      "tok",
+      "built"
+    ],
+    "priority": 36,
+    "created_at": "2026-09-01T16:42:46",
+    "reason": "Trending problem in ai_ml category"
+  },
+  "solution_type": "json_formatter",
+  "source": "Hacker News",
+  "category": "ai_ml"
+}

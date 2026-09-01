@@ -75,6 +75,23 @@
         "founders"
       ],
       "type": "text_summarizer"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac with at ~12 tok/s",
+      "keywords": [
+        "show",
+        "running",
+        "104gb",
+        "qwen3",
+        "flash",
+        "next",
+        "48gb",
+        "mac",
+        "tok",
+        "built"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {
