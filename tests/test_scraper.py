@@ -39,3 +39,51 @@ def test_scrape_all_sources_survives_one_source_failing(monkeypatch):
 
     assert len(items) == 1
     assert items[0]["source"] == "good"
+
+
+SO_RESPONSE = {
+    "items": [
+        {
+            "title": "How to stop my backup script from failing silently?",
+            "body_markdown": "It &#x27;doesn&#x27;t work&#x27; when the disk is full.<p>Help?</p>",
+            "link": "https://stackoverflow.com/q/1",
+            "score": 12,
+            "answer_count": 2,
+            "creation_date": 1756800000,
+            "tags": ["python", "bash"],
+        }
+    ]
+}
+
+
+def test_stackoverflow_maps_questions_to_problems(monkeypatch):
+    monkeypatch.setattr(scraper, "fetch_json", lambda *a, **k: SO_RESPONSE)
+    monkeypatch.setattr(scraper, "STACKOVERFLOW_TAGS", ["python"])
+
+    items = scraper.scrape_stackoverflow()
+
+    assert len(items) == 1
+    item = items[0]
+    assert item["title"] == "How to stop my backup script from failing silently?"
+    assert item["source"] == "Stack Overflow"
+    assert item["url"] == "https://stackoverflow.com/q/1"
+    assert item["score"] == 12
+    assert item["num_comments"] == 2
+
+
+def test_stackoverflow_cleans_html_from_body(monkeypatch):
+    monkeypatch.setattr(scraper, "fetch_json", lambda *a, **k: SO_RESPONSE)
+    monkeypatch.setattr(scraper, "STACKOVERFLOW_TAGS", ["python"])
+
+    text = scraper.scrape_stackoverflow()[0]["text"]
+
+    assert "&#x27;" not in text
+    assert "<p>" not in text
+    assert "doesn't work" in text
+
+
+def test_stackoverflow_returns_empty_when_fetch_fails(monkeypatch):
+    monkeypatch.setattr(scraper, "fetch_json", lambda *a, **k: None)
+    monkeypatch.setattr(scraper, "STACKOVERFLOW_TAGS", ["python"])
+
+    assert scraper.scrape_stackoverflow() == []

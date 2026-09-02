@@ -141,7 +141,46 @@ def scrape_google_trends() -> List[Dict]:
     } for trend in trends]
 
 
+# Tags chosen to overlap the template library (files, csv, json, logs, email).
+STACKOVERFLOW_TAGS = ["python", "json", "csv", "logging", "file", "automation"]
+
+# Verified live 2026-09-03: filter=!nNPvSNVZBv returns HTTP 400
+# ("Invalid filter specified"), so it is omitted. Without it the API's default
+# filter omits body_markdown; the title alone still carries the problem.
+STACKOVERFLOW_URL = (
+    "https://api.stackexchange.com/2.3/questions"
+    "?order=desc&sort=activity&pagesize=20&site=stackoverflow"
+    "&tagged={tag}"
+)
+
+
+def scrape_stackoverflow() -> List[Dict]:
+    """Scrape recent Stack Overflow questions. Every question is a stated problem."""
+    all_posts = []
+
+    for tag in STACKOVERFLOW_TAGS:
+        data = fetch_json(STACKOVERFLOW_URL.format(tag=tag))
+        if not data:
+            continue
+
+        for item in data.get("items", []):
+            all_posts.append({
+                "title": clean_text(item.get("title", "")),
+                "text": clean_text(item.get("body_markdown", ""))[:500],
+                "source": "Stack Overflow",
+                "url": item.get("link", ""),
+                "score": item.get("score", 0),
+                "num_comments": item.get("answer_count", 0),
+                "created_at": datetime.fromtimestamp(
+                    item.get("creation_date", 0), timezone.utc
+                ).isoformat(),
+            })
+
+    return all_posts
+
+
 SOURCE_SCRAPERS: Dict[str, Callable[[], List[Dict]]] = {
+    "Stack Overflow": scrape_stackoverflow,
     "Hacker News": scrape_hackernews,
     "Reddit": scrape_reddit,
     "Google Trends": scrape_google_trends,
