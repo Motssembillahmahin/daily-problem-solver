@@ -1,16 +1,13 @@
 # Scraping
 requests>=2.31.0
 beautifulsoup4>=4.12.0
+pytrends>=4.9.0
 
-# AI & Dedup
+# Deduplication (TF-IDF title similarity)
 scikit-learn>=1.3.0
-fuzzywuzzy>=0.18.0
-python-Levenshtein>=0.23.0
 
-# Backend
-fastapi>=0.104.0
-uvicorn>=0.24.0
-pydantic>=2.5.0
+# Timezone database for Asia/Dhaka (bundled on most Linux distros, needed on Windows)
+tzdata>=2024.1
 
-# Optional: Local AI (install when ready)
+# Optional: local LLM dedup check, used only when an Ollama daemon is reachable
 # ollama>=0.1.0

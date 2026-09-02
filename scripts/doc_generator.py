@@ -1,366 +1,159 @@
-"""
-Auto-generates documentation for solutions.
+"""Auto-generates documentation for a generated solution.
+
+Everything written here must be true of the files that were actually generated.
+Solution templates ship their own README.md with real usage instructions; this
+module never overwrites one, and only writes a README when the template omitted it.
 """
 
 from pathlib import Path
-from datetime import datetime
-from typing import Dict, Any
+from typing import Dict, List
+
+from scripts.dates import today_str
+
+DOC_FILENAME = "SOLUTION.md"
+
+# Files that describe the solution rather than implement it.
+_NON_CODE = {"README.md", "PROBLEM.md", "metadata.json", "requirements.txt"}
 
 
-def generate_documentation(problem_dir: Path, problem: Dict, solution: Dict):
-    """Generate all documentation files."""
-    generate_readme(problem_dir, problem, solution)
-    generate_architecture(problem_dir, problem, solution)
-    generate_ai_docs(problem_dir, problem)
-    generate_api_docs(problem_dir, solution)
+def generate_documentation(problem_dir: Path, problem: Dict, solution: Dict) -> None:
+    """Write docs/SOLUTION.md, plus a README.md if the solution shipped none."""
+    docs_dir = problem_dir / "docs"
+    docs_dir.mkdir(parents=True, exist_ok=True)
+
+    files = solution.get("files", {})
+    generate_solution_doc(docs_dir, problem, solution, files)
+
+    readme = problem_dir / "README.md"
+    if not readme.exists():
+        generate_readme(readme, problem, solution, files)
 
 
-def generate_readme(problem_dir: Path, problem: Dict, solution: Dict):
-    """Generate main README.md."""
-    date_str = datetime.now().strftime("%Y-%m-%d")
-    solution_type = solution.get("type", "fullstack")
-    title = problem['title']
-    desc = problem.get('description', 'N/A')
-    source = problem.get('source', 'N/A')
-    category = problem.get('category', 'N/A')
-    url = problem.get('url', 'N/A')
-    reason = problem.get('reason', 'This problem was identified as a trending need in the tech community.')
-    dirname = problem_dir.name
+def _entry_points(files: Dict[str, str]) -> List[str]:
+    """The runnable scripts in the generated file set."""
+    return sorted(name for name in files if name.endswith(".py") and name not in _NON_CODE)
 
-    readme_content = f"""# {title}
 
-> AI-generated solution for a real-world problem
-> Date: {date_str}
+def _has_dependencies(files: Dict[str, str]) -> bool:
+    """True when requirements.txt lists at least one real package."""
+    requirements = files.get("requirements.txt", "")
+    return any(
+        line.strip() and not line.strip().startswith("#")
+        for line in requirements.splitlines()
+    )
 
-## Problem Statement
 
-{desc}
+def _usage_block(files: Dict[str, str]) -> str:
+    """Install/run instructions derived from the files that were generated."""
+    entries = _entry_points(files)
+    if not entries:
+        return "No runnable script was generated for this problem.\n"
 
-**Source:** {source}
-**Category:** {category}
-**URL:** {url}
+    lines = ["```bash"]
+    if _has_dependencies(files):
+        lines.append("pip install -r requirements.txt")
+    for entry in entries:
+        lines.append(f"python {entry}")
+    lines.append("```")
+    lines.append("")
+    lines.append("Run a script with no arguments to see its available commands.")
+    return "\n".join(lines) + "\n"
 
-## Why This Problem?
 
-{reason}
+def _file_table(files: Dict[str, str]) -> str:
+    rows = ["| File | Lines | Role |", "|------|-------|------|"]
+    for name in sorted(files):
+        line_count = len(files[name].splitlines())
+        if name == "requirements.txt":
+            role = "Python dependencies"
+        elif name.endswith(".md"):
+            role = "Usage documentation"
+        elif name.endswith(".py"):
+            role = "Solution source"
+        else:
+            role = "Supporting file"
+        rows.append(f"| `{name}` | {line_count} | {role} |")
+    return "\n".join(rows) + "\n"
 
-## Solution Overview
 
-This is a **{solution_type}** solution that uses AI agents to solve the problem.
+def generate_solution_doc(
+    docs_dir: Path, problem: Dict, solution: Dict, files: Dict[str, str]
+) -> None:
+    """Write docs/SOLUTION.md describing the problem and the generated code."""
+    solution_type = solution.get("type", "unknown")
 
-### Tech Stack
+    content = f"""# Solution Notes
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | Next.js (React) |
-| Backend | Python (FastAPI) |
-| AI | HuggingFace API (Free) |
+Generated on {today_str()} by the Daily Problem Solver pipeline.
 
-## Quick Start
+## Problem
 
-### Prerequisites
+**{problem['title']}**
 
-- Python 3.10+
-- Node.js 18+
+{problem.get('description', 'No description was captured.')}
 
-### Installation
+| | |
+|---|---|
+| Source | {problem.get('source', 'N/A')} |
+| Category | {problem.get('category', 'N/A')} |
+| Original URL | {problem.get('url', 'N/A')} |
+| Selected because | {problem.get('reason', 'N/A')} |
 
-1. **Backend setup:**
-   ```bash
-   cd backend
-   python -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   uvicorn main:app --reload
-   ```
+## What Was Generated
 
-2. **Frontend setup:**
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
+The pipeline classified this problem as **`{solution_type}`** and generated the
+following files:
 
-3. **Open:** http://localhost:3000
+{_file_table(files)}
+## Running It
 
-## How It Works
+{_usage_block(files)}
+## How This Was Produced
 
-```
-User Request -> Next.js Frontend -> FastAPI Backend -> AI API -> Response
-```
+1. **Scrape** - trending posts were collected from Reddit, Hacker News,
+   Google Trends and a Twitter mirror.
+2. **Extract** - posts containing problem indicators were scored by engagement
+   and source weight.
+3. **Deduplicate** - the problem was compared against `data/solved_problems.json`
+   by title similarity and keyword overlap.
+4. **Generate** - keywords in the problem were matched to the `{solution_type}`
+   solution template, which produced the files listed above.
 
-## Project Structure
-
-```
-{dirname}/
-├── README.md           # This file
-├── PROBLEM.md          # Problem description
-├── metadata.json       # Problem metadata
-├── frontend/           # Next.js app
-│   ├── app/
-│   │   ├── page.tsx
-│   │   ├── layout.tsx
-│   │   └── globals.css
-│   └── package.json
-├── backend/            # Python API
-│   ├── main.py
-│   ├── requirements.txt
-│   └── agents/
-│       └── agent.py
-└── docs/
-    ├── ARCHITECTURE.md
-    ├── AI_AGENTS.md
-    └── API.md
-```
-
-## AI Agent Features
-
-- **Problem Analysis:** AI analyzes the problem and suggests approach
-- **Code Generation:** Generates working code solution
-- **Free API:** Uses HuggingFace free inference API
-
-## License
-
-MIT License - Generated by Daily Problem Solver
+The generated code comes from a curated template selected by keyword matching,
+not from a language model, so it addresses the problem's *category* rather than
+its specific details. Review it before relying on it.
 """
 
-    with open(problem_dir / "README.md", "w") as f:
-        f.write(readme_content)
+    (docs_dir / DOC_FILENAME).write_text(content, encoding="utf-8")
 
 
-def generate_architecture(problem_dir: Path, problem: Dict, solution: Dict):
-    """Generate ARCHITECTURE.md."""
-    title = problem['title']
+def generate_readme(
+    readme_path: Path, problem: Dict, solution: Dict, files: Dict[str, str]
+) -> None:
+    """Write a minimal accurate README for solutions whose template omitted one."""
+    entries = _entry_points(files)
+    summary = ", ".join(f"`{name}`" for name in entries) if entries else "no runnable script"
 
-    content = f"""# Architecture Documentation
+    content = f"""# {problem['title']}
 
-## System Overview
+> Auto-generated solution - {today_str()}
 
-This solution implements a full-stack application to solve:
-**{title}**
+## Problem
 
-## High-Level Architecture
+{problem.get('description', 'No description was captured.')}
 
-```
-+-----------------------------------------------------+
-|                      CLIENT (Browser)                |
-|                     Next.js Frontend                 |
-+-----------------------------------------------------+
-                           |
-                           v
-+-----------------------------------------------------+
-|                      API SERVER                      |
-|                   FastAPI Backend                    |
-+-----------------------------------------------------+
-                           |
-                           v
-+-----------------------------------------------------+
-|                     AI SERVICE                       |
-|               HuggingFace Free API                   |
-+-----------------------------------------------------+
-```
+Source: {problem.get('source', 'N/A')}
 
-## Components
+## Contents
 
-### Frontend (Next.js)
+This solution ships {summary}.
 
-- **Framework:** Next.js 14 with App Router
-- **Language:** TypeScript/JavaScript
-- **Styling:** Tailwind CSS
-- **State:** React hooks
+{_file_table(files)}
+## Usage
 
-### Backend (Python)
-
-- **Framework:** FastAPI
-- **AI:** HuggingFace Free Inference API
-- **Language:** Python 3.10+
-
-## Data Flow
-
-1. User interacts with Next.js frontend
-2. Frontend sends request to FastAPI backend
-3. Backend calls HuggingFace API
-4. AI processes the request
-5. Response returned to frontend
-6. Frontend displays solution
-
-## Security Notes
-
-- No API keys required (free tier)
-- All processing via HTTPS
-- No sensitive data stored
+{_usage_block(files)}
+See [`docs/{DOC_FILENAME}`](docs/{DOC_FILENAME}) for how this problem was selected
+and how the code was produced.
 """
 
-    with open(problem_dir / "docs" / "ARCHITECTURE.md", "w") as f:
-        f.write(content)
-
-
-def generate_ai_docs(problem_dir: Path, problem: Dict):
-    """Generate AI_AGENTS.md."""
-    title = problem['title']
-
-    content = f"""# AI Agents Documentation
-
-## Overview
-
-This solution uses AI to solve: **{title}**
-
-## Agent Architecture
-
-### ProblemSolverAgent
-
-The main agent that orchestrates problem solving:
-
-```python
-class ProblemSolverAgent:
-    def __init__(self):
-        self.api_url = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
-
-    def analyze(self, problem):
-        # Analyzes problem and suggests approach
-        pass
-
-    def generate_code(self, problem, approach):
-        # Generates working code
-        pass
-```
-
-## How It Works
-
-### Step 1: Problem Analysis
-
-The agent analyzes the problem using natural language understanding:
-
-- Identifies key requirements
-- Determines best approach
-- Suggests implementation strategy
-
-### Step 2: Code Generation
-
-Based on analysis, the agent generates:
-
-- Complete working code
-- Required dependencies
-- Configuration files
-
-### Step 3: Documentation
-
-Auto-generates:
-
-- README with setup instructions
-- Architecture documentation
-- API documentation
-
-## API Information
-
-| Property | Value |
-|----------|-------|
-| Provider | HuggingFace |
-| Model | Mistral-7B-Instruct |
-| Cost | Free tier |
-| API Calls | Rate limited |
-
-## Customization
-
-### Adjusting Prompts
-
-Modify prompts in the agent to change behavior:
-
-```python
-prompt = f"Your custom prompt here... Problem: {{problem}}"
-```
-
-## Performance
-
-- **Analysis Time:** ~2-5 seconds
-- **Code Generation:** ~5-10 seconds
-- **Total:** < 15 seconds per problem
-
-## Future Enhancements
-
-- [ ] Add multi-agent collaboration
-- [ ] Implement agent memory
-- [ ] Add code testing agent
-- [ ] Support multiple languages
-"""
-
-    with open(problem_dir / "docs" / "AI_AGENTS.md", "w") as f:
-        f.write(content)
-
-
-def generate_api_docs(problem_dir: Path, solution: Dict):
-    """Generate API.md."""
-    content = """# API Documentation
-
-## Base URL
-
-```
-http://localhost:8000
-```
-
-## Endpoints
-
-### POST /api/solve
-
-Solve a problem using AI agent.
-
-**Request Body:**
-
-```json
-{
-    "problem": "string",
-    "description": "string"
-}
-```
-
-**Response:**
-
-```json
-{
-    "problem": "string",
-    "solution": "string",
-    "code": "string"
-}
-```
-
-**Example:**
-
-```bash
-curl -X POST http://localhost:8000/api/solve \\
-  -H "Content-Type: application/json" \\
-  -d '{"problem": "How to organize files", "description": "Need automated file organizer"}'
-```
-
-### GET /api/health
-
-Health check endpoint.
-
-**Response:**
-
-```json
-{
-    "status": "healthy"
-}
-```
-
-## Error Handling
-
-All errors return standard HTTP status codes:
-
-| Code | Description |
-|------|-------------|
-| 200 | Success |
-| 400 | Bad Request |
-| 500 | Server Error |
-
-## Rate Limiting
-
-No rate limiting - runs locally.
-
-## Authentication
-
-No authentication required - local development only.
-"""
-
-    with open(problem_dir / "docs" / "API.md", "w") as f:
-        f.write(content)
+    readme_path.write_text(content, encoding="utf-8")

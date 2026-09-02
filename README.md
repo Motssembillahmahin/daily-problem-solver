@@ -26,19 +26,24 @@ daily-problem-solver/
 │   ├── scraper.py         # Scrapes multiple sources
 │   ├── extractor.py       # Extracts problems
 │   ├── dedup.py           # Deduplication (local AI)
-│   ├── solver.py          # AI solution generator
+│   ├── smart_solver.py    # Solution generator (template based)
+│   ├── dates.py           # Pipeline date helpers (Asia/Dhaka)
 │   └── doc_generator.py   # Auto-generates docs
 ├── solutions/
-│   └── YYYY-MM-DD/        # Daily solutions
-│       ├── README.md
-│       ├── PROBLEM.md
-│       ├── frontend/      # Next.js
-│       ├── backend/       # Python FastAPI
+│   └── YYYY-MM-DD/        # Daily solutions (BDT date)
+│       ├── README.md          # Usage docs for the generated tool
+│       ├── PROBLEM.md         # Problem statement and provenance
+│       ├── metadata.json
+│       ├── <solution>.py      # The generated tool
+│       ├── requirements.txt
 │       └── docs/
+│           └── SOLUTION.md    # How the problem was picked and solved
 ├── data/
 │   └── solved_problems.json
+├── tests/
 ├── main.py                # Main orchestrator
-└── requirements.txt
+├── requirements.txt
+└── requirements-dev.txt
 ```
 
 ## 🛠️ Tech Stack

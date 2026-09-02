@@ -3,11 +3,12 @@ Daily Problem Solver - Main Orchestrator
 AI-powered system that scrapes real-world problems and generates full-stack solutions.
 """
 
-import os
 import json
 from datetime import datetime
 from pathlib import Path
+from typing import Dict
 
+from scripts.dates import today_str
 from scripts.scraper import scrape_all_sources
 from scripts.extractor import extract_problems
 from scripts.dedup import check_uniqueness
@@ -23,16 +24,45 @@ HISTORY_FILE = DATA_DIR / "solved_problems.json"
 def load_history():
     """Load previously solved problems."""
     if HISTORY_FILE.exists():
-        with open(HISTORY_FILE, "r") as f:
+        with open(HISTORY_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     return {"problems": []}
 
 
 def save_history(history):
     """Save solved problems history."""
-    DATA_DIR.mkdir(exist_ok=True)
-    with open(HISTORY_FILE, "w") as f:
-        json.dump(history, f, indent=2)
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(history, f, indent=2, ensure_ascii=False)
+
+
+def write_solution_files(
+    problem_dir: Path, date_str: str, problem: Dict, solution: Dict
+) -> None:
+    """Write metadata, the problem statement, and the generated solution files."""
+    with open(problem_dir / "metadata.json", "w", encoding="utf-8") as f:
+        json.dump({
+            "date": date_str,
+            "problem": problem,
+            "solution_type": solution["type"],
+            "source": problem.get("source", "unknown"),
+            "category": problem.get("category", "general")
+        }, f, indent=2, ensure_ascii=False)
+
+    with open(problem_dir / "PROBLEM.md", "w", encoding="utf-8") as f:
+        f.write(f"# Problem: {problem['title']}\n\n")
+        f.write(f"**Date:** {date_str}\n\n")
+        f.write(f"**Source:** {problem.get('source', 'N/A')}\n\n")
+        f.write(f"**Category:** {problem.get('category', 'N/A')}\n\n")
+        f.write(f"**Why Selected:** {problem.get('reason', 'Unique and relevant')}\n\n")
+        f.write(f"## Description\n\n{problem.get('description', 'N/A')}\n\n")
+        f.write(f"## Original URL\n\n{problem.get('url', 'N/A')}\n")
+
+    for filename, content in solution.get("files", {}).items():
+        file_path = problem_dir / filename
+        file_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(content)
 
 
 def run():
@@ -73,39 +103,11 @@ def run():
 
     # Step 5: Save and create files
     print("\n[5/5] Saving solution and generating docs...")
-    date_str = datetime.now().strftime("%Y-%m-%d")
+    date_str = today_str()
     problem_dir = SOLUTIONS_DIR / date_str
     problem_dir.mkdir(parents=True, exist_ok=True)
-    (problem_dir / "docs").mkdir(exist_ok=True)
 
-    # Save problem metadata
-    with open(problem_dir / "metadata.json", "w") as f:
-        json.dump({
-            "date": date_str,
-            "problem": selected_problem,
-            "solution_type": solution["type"],
-            "source": selected_problem.get("source", "unknown"),
-            "category": selected_problem.get("category", "general")
-        }, f, indent=2)
-
-    # Save problem description
-    with open(problem_dir / "PROBLEM.md", "w") as f:
-        f.write(f"# Problem: {selected_problem['title']}\n\n")
-        f.write(f"**Date:** {date_str}\n\n")
-        f.write(f"**Source:** {selected_problem.get('source', 'N/A')}\n\n")
-        f.write(f"**Category:** {selected_problem.get('category', 'N/A')}\n\n")
-        f.write(f"**Why Selected:** {selected_problem.get('reason', 'Unique and relevant')}\n\n")
-        f.write(f"## Description\n\n{selected_problem.get('description', 'N/A')}\n\n")
-        f.write(f"## Original URL\n\n{selected_problem.get('url', 'N/A')}\n")
-
-    # Save solution files
-    for filename, content in solution.get("files", {}).items():
-        file_path = problem_dir / filename
-        file_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(file_path, "w") as f:
-            f.write(content)
-
-    # Generate documentation
+    write_solution_files(problem_dir, date_str, selected_problem, solution)
     generate_documentation(problem_dir, selected_problem, solution)
 
     # Update history
@@ -126,6 +128,6 @@ def run():
 
 
 if __name__ == "__main__":
-    success = run()
+    run()
     # exit 0 even when no unique problem -> workflow should succeed (no update today is not a failure)
     exit(0)
