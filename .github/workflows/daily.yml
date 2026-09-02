@@ -35,6 +35,7 @@ jobs:
       - name: Run Daily Solver
         env:
           PYTHONPATH: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python main.py
 
       - name: Configure Git

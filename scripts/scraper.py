@@ -2,6 +2,8 @@
 Scrapes real-world problems from multiple free sources.
 """
 
+import os
+
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -205,9 +207,42 @@ def scrape_ask_hn() -> List[Dict]:
     return all_posts
 
 
+GITHUB_ISSUES_URL = (
+    "https://api.github.com/search/issues"
+    "?q=label:bug+state:open+is:issue+comments:%3E2&sort=created&order=desc&per_page=30"
+)
+
+
+def scrape_github_issues() -> List[Dict]:
+    """Scrape recently reported bugs. Issues labelled `bug` are stated problems."""
+    headers = {"Accept": "application/vnd.github+json"}
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+
+    data = fetch_json(GITHUB_ISSUES_URL, headers=headers)
+    if not data:
+        return []
+
+    all_posts = []
+    for item in data.get("items", []):
+        all_posts.append({
+            "title": clean_text(item.get("title", "")),
+            "text": clean_text(item.get("body", "") or "")[:500],
+            "source": "GitHub Issues",
+            "url": item.get("html_url", ""),
+            "score": (item.get("reactions") or {}).get("total_count", 0),
+            "num_comments": item.get("comments", 0),
+            "created_at": item.get("created_at", ""),
+        })
+
+    return all_posts
+
+
 SOURCE_SCRAPERS: Dict[str, Callable[[], List[Dict]]] = {
     "Stack Overflow": scrape_stackoverflow,
     "Ask HN": scrape_ask_hn,
+    "GitHub issues": scrape_github_issues,
     "Hacker News": scrape_hackernews,
     "Reddit": scrape_reddit,
     "Google Trends": scrape_google_trends,

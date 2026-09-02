@@ -122,3 +122,61 @@ def test_ask_hn_returns_empty_when_fetch_fails(monkeypatch):
     monkeypatch.setattr(scraper, "fetch_json", lambda *a, **k: None)
 
     assert scraper.scrape_ask_hn() == []
+
+
+GITHUB_RESPONSE = {
+    "items": [
+        {
+            "title": "Config file has no effect when installed via package manager",
+            "body": "It doesn&#x27;t work and I can&#x27;t figure out why.<p>Steps:</p>",
+            "html_url": "https://github.com/o/r/issues/7",
+            "comments": 4,
+            "reactions": {"total_count": 9},
+            "created_at": "2026-08-30T10:00:00Z",
+        }
+    ]
+}
+
+
+def test_github_issues_map_to_problems(monkeypatch):
+    monkeypatch.setattr(scraper, "fetch_json", lambda *a, **k: GITHUB_RESPONSE)
+
+    items = scraper.scrape_github_issues()
+
+    assert len(items) == 1
+    item = items[0]
+    assert item["source"] == "GitHub Issues"
+    assert item["url"] == "https://github.com/o/r/issues/7"
+    assert item["num_comments"] == 4
+    assert item["score"] == 9
+    assert "&#x27;" not in item["text"]
+
+
+def test_github_issues_send_token_when_available(monkeypatch):
+    seen = {}
+
+    def fake_fetch(url, headers=None, **kwargs):
+        seen["headers"] = headers or {}
+        return {"items": []}
+
+    monkeypatch.setattr(scraper, "fetch_json", fake_fetch)
+    monkeypatch.setenv("GITHUB_TOKEN", "secret-token")
+
+    scraper.scrape_github_issues()
+
+    assert seen["headers"].get("Authorization") == "Bearer secret-token"
+
+
+def test_github_issues_work_without_a_token(monkeypatch):
+    seen = {}
+
+    def fake_fetch(url, headers=None, **kwargs):
+        seen["headers"] = headers or {}
+        return {"items": []}
+
+    monkeypatch.setattr(scraper, "fetch_json", fake_fetch)
+    monkeypatch.delenv("GITHUB_TOKEN", raising=False)
+
+    scraper.scrape_github_issues()
+
+    assert "Authorization" not in seen["headers"]

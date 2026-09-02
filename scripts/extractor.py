@@ -112,12 +112,14 @@ def calculate_priority(item: Dict) -> int:
 
     # Source weight
     source_weights = {
-        "Hacker News": 15,
-        "Google Trends": 12,
+        "Stack Overflow": 20,
+        "Ask HN": 18,
+        "GitHub Issues": 16,
+        "Hacker News": 12,
         "r/technology": 10,
         "r/programming": 10,
         "r/MachineLearning": 10,
-        "Twitter": 8
+        "Google Trends": 5,
     }
     for source, weight in source_weights.items():
         if source in item.get("source", ""):
