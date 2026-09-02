@@ -9,15 +9,31 @@ from collections import Counter
 from scripts.matching import mentions
 
 
-# Problem indicators - phrases that suggest a real problem
-PROBLEM_INDICATORS = [
-    "how to", "problem", "issue", "struggle", "difficulty",
-    "need help", "looking for", "solution", "fix", "error",
-    "can't", "cannot", "doesn't work", "not working", "broken",
-    "frustrated", "annoying", "pain", "challenge", "improve",
-    "automate", "simplify", "better", "alternative", "recommend",
-    "suggestion", "advice", "tool", "app", "software", "build",
-    "create", "make", "develop", "implement", "idea", "feature"
+# Phrases that indicate someone is actually stuck or frustrated. At least one
+# of these must be present for content to count as a problem.
+STRONG_INDICATORS = [
+    "how do i", "how to", "how can i", "problem", "issue", "struggle",
+    "struggling", "difficulty", "need help", "looking for", "error", "fails",
+    "failing", "failed", "can't", "cannot", "doesn't work", "not working",
+    "broken", "frustrated", "annoying", "pain", "stuck", "confused",
+    "any advice", "any suggestions", "what's the best way", "is there a way",
+    "unable to", "keeps crashing", "why does", "why is",
+]
+
+# Supporting signals. These corroborate a strong indicator but never stand alone.
+WEAK_INDICATORS = [
+    "improve", "automate", "simplify", "better", "alternative", "recommend",
+    "suggestion", "advice", "tool", "app", "software", "workaround", "fix",
+    "solution", "challenge",
+]
+
+# Product-announcement phrasing. Announcements describe something that was
+# built, not a problem to solve, so they are rejected outright.
+ANNOUNCEMENT_MARKERS = [
+    "show hn", "launch hn", "introducing", "announcing", "we built",
+    "i built", "we've built", "i've built", "we made", "i made",
+    "we launched", "just launched", "now available", "release notes",
+    "changelog", "yc s2", "yc w2",
 ]
 
 # Tech categories
@@ -66,11 +82,24 @@ def categorize_problem(title: str, text: str) -> str:
     return best if scores[best] > 0 else "general"
 
 
-def is_problem(title: str, text: str) -> bool:
-    """Check if content describes a problem/need."""
+def is_announcement(title: str, text: str) -> bool:
+    """True when content announces a product rather than describing a problem."""
     combined = (title + " " + text).lower()
-    matches = sum(1 for indicator in PROBLEM_INDICATORS if indicator in combined)
-    return matches >= 2
+    return any(marker in combined for marker in ANNOUNCEMENT_MARKERS)
+
+
+def is_problem(title: str, text: str) -> bool:
+    """Check if content describes a problem someone is actually having."""
+    if is_announcement(title, text):
+        return False
+
+    combined = (title + " " + text).lower()
+    if not any(indicator in combined for indicator in STRONG_INDICATORS):
+        return False
+
+    weak_hits = sum(1 for indicator in WEAK_INDICATORS if mentions(indicator, combined))
+    strong_hits = sum(1 for indicator in STRONG_INDICATORS if indicator in combined)
+    return strong_hits + weak_hits >= 2
 
 
 def calculate_priority(item: Dict) -> int:
