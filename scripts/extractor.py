@@ -6,6 +6,8 @@ import re
 from typing import List, Dict
 from collections import Counter
 
+from scripts.matching import mentions
+
 
 # Problem indicators - phrases that suggest a real problem
 PROBLEM_INDICATORS = [
@@ -51,22 +53,12 @@ def extract_keywords(text: str) -> List[str]:
     return [w for w in words if w not in stop_words and len(w) > 2]
 
 
-def _mentions(keyword: str, text: str) -> bool:
-    """True when `keyword` appears in `text` as a whole word.
-
-    Plain substring matching produced false positives that dominated
-    categorisation: "app" matched inside "bootstrappable", and "ai" matched
-    inside "failing", "email" and "explain".
-    """
-    return re.search(rf"\b{re.escape(keyword)}\b", text) is not None
-
-
 def categorize_problem(title: str, text: str) -> str:
     """Categorize a problem based on its content, or "general" if nothing matches."""
     combined = (title + " " + text).lower()
 
     scores = {
-        category: sum(1 for kw in keywords if _mentions(kw, combined))
+        category: sum(1 for kw in keywords if mentions(kw, combined))
         for category, keywords in CATEGORIES.items()
     }
 
