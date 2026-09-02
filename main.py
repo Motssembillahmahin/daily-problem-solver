@@ -65,6 +65,15 @@ def write_solution_files(
             f.write(content)
 
 
+def select_solvable_problem(problems):
+    """Return the first (problem, solution) the template library can serve."""
+    for problem in problems:
+        solution = generate_solution(problem)
+        if solution is not None:
+            return problem, solution
+    return None, None
+
+
 def run():
     """Main pipeline."""
     print("=" * 60)
@@ -92,13 +101,15 @@ def run():
         print("\nNo unique problems found today. Skipping.")
         return False
 
-    # Pick the best problem
-    selected_problem = unique_problems[0]
-    print(f"\n   Selected: {selected_problem['title']}")
+    # Step 4: Pick the best problem the template library can actually solve
+    print("\n[4/5] Generating solution...")
+    selected_problem, solution = select_solvable_problem(unique_problems)
 
-    # Step 4: Generate solution
-    print("\n[4/5] Generating AI solution...")
-    solution = generate_solution(selected_problem)
+    if solution is None:
+        print(f"\nNo template fits any of today's {len(unique_problems)} problems. Skipping.")
+        return False
+
+    print(f"   Selected: {selected_problem['title']}")
     print(f"   Solution type: {solution['type']}")
 
     # Step 5: Save and create files
