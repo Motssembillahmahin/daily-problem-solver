@@ -87,3 +87,38 @@ def test_stackoverflow_returns_empty_when_fetch_fails(monkeypatch):
     monkeypatch.setattr(scraper, "STACKOVERFLOW_TAGS", ["python"])
 
     assert scraper.scrape_stackoverflow() == []
+
+
+ASK_HN_RESPONSE = {
+    "hits": [
+        {
+            "objectID": "42",
+            "title": "Ask HN: How do I stop my deploys from failing at random?",
+            "story_text": "We&#x27;ve tried everything and it&#x27;s still broken.",
+            "points": 88,
+            "num_comments": 31,
+            "created_at_i": 1756800000,
+        }
+    ]
+}
+
+
+def test_ask_hn_maps_hits_to_problems(monkeypatch):
+    monkeypatch.setattr(scraper, "fetch_json", lambda *a, **k: ASK_HN_RESPONSE)
+
+    items = scraper.scrape_ask_hn()
+
+    assert len(items) == 1
+    item = items[0]
+    assert item["title"].startswith("Ask HN: How do I stop my deploys")
+    assert item["source"] == "Ask HN"
+    assert item["url"] == "https://news.ycombinator.com/item?id=42"
+    assert item["score"] == 88
+    assert item["num_comments"] == 31
+    assert "&#x27;" not in item["text"]
+
+
+def test_ask_hn_returns_empty_when_fetch_fails(monkeypatch):
+    monkeypatch.setattr(scraper, "fetch_json", lambda *a, **k: None)
+
+    assert scraper.scrape_ask_hn() == []

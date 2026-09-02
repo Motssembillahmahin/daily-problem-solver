@@ -179,8 +179,35 @@ def scrape_stackoverflow() -> List[Dict]:
     return all_posts
 
 
+ASK_HN_URL = "https://hn.algolia.com/api/v1/search?tags=ask_hn&hitsPerPage=30"
+
+
+def scrape_ask_hn() -> List[Dict]:
+    """Scrape Ask HN posts, which are questions rather than announcements."""
+    data = fetch_json(ASK_HN_URL)
+    if not data:
+        return []
+
+    all_posts = []
+    for hit in data.get("hits", []):
+        all_posts.append({
+            "title": clean_text(hit.get("title", "")),
+            "text": clean_text(hit.get("story_text", ""))[:500],
+            "source": "Ask HN",
+            "url": f"https://news.ycombinator.com/item?id={hit.get('objectID', '')}",
+            "score": hit.get("points") or 0,
+            "num_comments": hit.get("num_comments") or 0,
+            "created_at": datetime.fromtimestamp(
+                hit.get("created_at_i", 0), timezone.utc
+            ).isoformat(),
+        })
+
+    return all_posts
+
+
 SOURCE_SCRAPERS: Dict[str, Callable[[], List[Dict]]] = {
     "Stack Overflow": scrape_stackoverflow,
+    "Ask HN": scrape_ask_hn,
     "Hacker News": scrape_hackernews,
     "Reddit": scrape_reddit,
     "Google Trends": scrape_google_trends,
