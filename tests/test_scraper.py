@@ -89,6 +89,32 @@ def test_stackoverflow_returns_empty_when_fetch_fails(monkeypatch):
     assert scraper.scrape_stackoverflow() == []
 
 
+SO_RESPONSE_NO_BODY_MARKDOWN = {
+    "items": [
+        {
+            "title": "How to stop my backup script from failing silently?",
+            "link": "https://stackoverflow.com/q/1",
+            "score": 12,
+            "answer_count": 2,
+            "creation_date": 1756800000,
+            "tags": ["python", "bash"],
+        }
+    ]
+}
+
+
+def test_stackoverflow_falls_back_to_title_when_api_omits_body(monkeypatch):
+    """The live, unfiltered Stack Exchange API omits body_markdown entirely.
+    text must fall back to empty while title stays populated."""
+    monkeypatch.setattr(scraper, "fetch_json", lambda *a, **k: SO_RESPONSE_NO_BODY_MARKDOWN)
+    monkeypatch.setattr(scraper, "STACKOVERFLOW_TAGS", ["python"])
+
+    item = scraper.scrape_stackoverflow()[0]
+
+    assert item["text"] == ""
+    assert item["title"] == "How to stop my backup script from failing silently?"
+
+
 ASK_HN_RESPONSE = {
     "hits": [
         {
