@@ -1,6 +1,5 @@
 # Scraping
 requests>=2.31.0
-beautifulsoup4>=4.12.0
 pytrends>=4.9.0
 
 # Deduplication (TF-IDF title similarity)
