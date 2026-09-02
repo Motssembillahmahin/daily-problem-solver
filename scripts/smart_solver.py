@@ -10,9 +10,48 @@ from typing import Dict, Any, List
 from datetime import datetime
 from pathlib import Path
 
+from scripts.matching import mentions
+
 
 class SolutionGenerator:
     """Generates actual working solutions based on problem analysis."""
+
+    # A problem must score at least this many keyword hits for a template to be
+    # considered a fit. Below it, the library has nothing relevant and the
+    # pipeline should move on rather than ship an unrelated tool.
+    MIN_FIT = 2
+
+    # Only templates that are actually implemented appear here.
+    TEMPLATE_KEYWORDS = {
+        "health_tracker": ["health", "fitness", "workout", "exercise", "calorie",
+                            "steps", "sleep", "weight", "medical", "wellness"],
+        "file_organizer": ["file", "files", "organize", "organise", "sort",
+                            "folder", "directory", "rename", "duplicate"],
+        "url_shortener": ["url", "shorten", "shortener", "link", "redirect", "slug"],
+        "todo_api": ["todo", "task", "tasks", "checklist", "kanban", "backlog"],
+        "weather_app": ["weather", "forecast", "temperature", "rain", "climate"],
+        "json_formatter": ["json", "format", "beautify", "pretty print", "lint",
+                            "minify", "validate", "unreadable"],
+        "csv_analyzer": ["csv", "spreadsheet", "excel", "column", "rows",
+                          "tabular", "dataset"],
+        "password_generator": ["password", "passphrase", "credential", "random",
+                                "secure", "generator"],
+        "note_taker": ["note", "notes", "journal", "diary", "scratchpad"],
+        "pomodoro_timer": ["pomodoro", "timer", "focus", "concentrate",
+                            "distraction", "break"],
+        "budget_tracker": ["budget", "expense", "expenses", "spending", "money",
+                            "income", "finance", "cost"],
+        "bookmark_manager": ["bookmark", "bookmarks", "read later", "saved links",
+                              "tabs", "favourites", "favorites"],
+        "text_summarizer": ["summarize", "summarise", "summary", "tldr",
+                             "article", "long text", "condense"],
+        "log_analyzer": ["log", "logs", "logfile", "stacktrace", "traceback",
+                          "error rate", "monitor"],
+        "backup_tool": ["backup", "backups", "restore", "snapshot", "archive",
+                         "sync"],
+        "email_validator": ["email", "e-mail", "mailbox", "smtp", "bounce",
+                             "verify address"],
+    }
 
     def __init__(self):
         self.solution_templates = {
@@ -20,13 +59,8 @@ class SolutionGenerator:
             "url_shortener": self._url_shortener,
             "todo_api": self._todo_api,
             "weather_app": self._weather_app,
-            "pdf_converter": self._pdf_converter,
-            "markdown_editor": self._markdown_editor,
             "json_formatter": self._json_formatter,
             "csv_analyzer": self._csv_analyzer,
-            "regex_helper": self._regex_helper,
-            "git_helper": self._git_helper,
-            "api_tester": self._api_tester,
             "password_generator": self._password_generator,
             "health_tracker": self._health_tracker,
             "note_taker": self._note_taker,
@@ -34,90 +68,44 @@ class SolutionGenerator:
             "budget_tracker": self._budget_tracker,
             "bookmark_manager": self._bookmark_manager,
             "text_summarizer": self._text_summarizer,
-            "image_compressor": self._image_compressor,
-            "email_validator": self._email_validator,
-            "json_to_csv": self._json_to_csv,
             "log_analyzer": self._log_analyzer,
             "backup_tool": self._backup_tool,
-            "code_formatter": self._code_formatter,
-            "env_manager": self._env_manager,
+            "email_validator": self._email_validator,
         }
 
-    def analyze_problem(self, problem: Dict) -> str:
-        """Analyze problem and determine solution type."""
-        title = problem.get("title", "").lower()
-        description = problem.get("description", "").lower()
-        keywords = problem.get("keywords", [])
-        combined = f"{title} {description} {' '.join(keywords)}".lower()
+    def score_templates(self, problem: Dict) -> Dict[str, int]:
+        """Score every template by how many of its keywords the problem mentions."""
+        combined = " ".join([
+            problem.get("title", ""),
+            problem.get("description", ""),
+            " ".join(problem.get("keywords", [])),
+        ]).lower()
 
-        # Map problems to solution types (order matters - most specific first)
-        if any(w in combined for w in ["health", "fitness", "workout", "exercise", "calorie", "step", "medical"]):
-            return "health_tracker"
-        if any(w in combined for w in ["file", "organize", "sort", "folder"]):
-            return "file_organizer"
-        if any(w in combined for w in ["url", "short", "link", "redirect"]):
-            return "url_shortener"
-        if any(w in combined for w in ["todo", "task", "list", "checklist", "project"]):
-            return "todo_api"
-        if any(w in combined for w in ["weather", "forecast", "temperature"]):
-            return "weather_app"
-        if any(w in combined for w in ["pdf", "convert", "document"]):
-            return "pdf_converter"
-        if any(w in combined for w in ["markdown", "editor", "preview"]):
-            return "markdown_editor"
-        if any(w in combined for w in ["json", "format", "beautify", "lint"]):
-            return "json_formatter"
-        if any(w in combined for w in ["csv", "data", "analyze", "spreadsheet"]):
-            return "csv_analyzer"
-        if any(w in combined for w in ["regex", "pattern", "match"]):
-            return "regex_helper"
-        if any(w in combined for w in ["git", "commit", "branch"]):
-            return "git_helper"
-        if any(w in combined for w in ["api", "test", "endpoint", "request"]):
-            return "api_tester"
-        if any(w in combined for w in ["password", "secure", "generate"]):
-            return "password_generator"
-        if any(w in combined for w in ["summarize", "text", "content", "article"]):
-            return "text_summarizer"
-        if any(w in combined for w in ["image", "compress", "resize", "photo"]):
-            return "image_compressor"
-        if any(w in combined for w in ["email", "valid", "verify"]):
-            return "email_validator"
-        if any(w in combined for w in ["log", "analyze", "monitor", "server"]):
-            return "log_analyzer"
-        if any(w in combined for w in ["backup", "sync", "copy"]):
-            return "backup_tool"
-        if any(w in combined for w in ["format", "code", "lint", "style"]):
-            return "code_formatter"
-        if any(w in combined for w in ["env", "environment", "config", "variable"]):
-            return "env_manager"
-        if any(w in combined for w in ["note", "journal", "diary", "write"]):
-            return "note_taker"
-        if any(w in combined for w in ["timer", "pomodoro", "focus", "concentrate"]):
-            return "pomodoro_timer"
-        if any(w in combined for w in ["budget", "expense", "money", "finance", "spend"]):
-            return "budget_tracker"
-        if any(w in combined for w in ["bookmark", "save", "read later"]):
-            return "bookmark_manager"
+        return {
+            name: sum(1 for kw in keywords if mentions(kw, combined))
+            for name, keywords in self.TEMPLATE_KEYWORDS.items()
+        }
 
-        # Default: create a useful utility
-        return "json_formatter"
+    def analyze_problem(self, problem: Dict) -> str | None:
+        """Return the best-fitting template, or None when the library has none."""
+        scores = self.score_templates(problem)
+        best = max(scores, key=scores.get)
+        return best if scores[best] >= self.MIN_FIT else None
 
-    def generate_solution(self, problem: Dict) -> Dict[str, Any]:
-        """Generate a real working solution."""
+    def generate_solution(self, problem: Dict) -> Dict[str, Any] | None:
+        """Generate a solution, or None when no template fits the problem."""
         solution_type = self.analyze_problem(problem)
+        if solution_type is None:
+            print(f"   No template fits: {problem.get('title', '')[:60]}")
+            return None
+
         print(f"   Analyzed as: {solution_type}")
-
-        # Get the generator method
-        generator = self.solution_templates.get(solution_type, self._json_formatter)
-
-        # Generate the solution
-        files = generator(problem)
+        files = self.solution_templates[solution_type](problem)
 
         return {
             "type": solution_type,
             "files": files,
-            "description": f"Working solution for: {problem['title']}"
+            "description": f"Working solution for: {problem['title']}",
         }
 
     def _file_organizer(self, problem: Dict) -> Dict[str, str]:
@@ -1159,34 +1147,6 @@ python validate_email.py user@example.com
 '''
         }
 
-    # Fallback methods that delegate to working implementations
-    def _pdf_converter(self, problem: Dict) -> Dict[str, str]:
-        return self._json_formatter(problem)
-
-    def _markdown_editor(self, problem: Dict) -> Dict[str, str]:
-        return self._json_formatter(problem)
-
-    def _regex_helper(self, problem: Dict) -> Dict[str, str]:
-        return self._json_formatter(problem)
-
-    def _git_helper(self, problem: Dict) -> Dict[str, str]:
-        return self._json_formatter(problem)
-
-    def _api_tester(self, problem: Dict) -> Dict[str, str]:
-        return self._json_formatter(problem)
-
-    def _image_compressor(self, problem: Dict) -> Dict[str, str]:
-        return self._json_formatter(problem)
-
-    def _json_to_csv(self, problem: Dict) -> Dict[str, str]:
-        return self._csv_analyzer(problem)
-
-    def _env_manager(self, problem: Dict) -> Dict[str, str]:
-        return self._json_formatter(problem)
-
-    def _code_formatter(self, problem: Dict) -> Dict[str, str]:
-        return self._json_formatter(problem)
-
     def _health_tracker(self, problem: Dict) -> Dict[str, str]:
         """Generate a health tracking app."""
         return {
@@ -1914,7 +1874,7 @@ python bookmarks.py delete 1
         }
 
 
-def generate_solution(problem: Dict) -> Dict[str, Any]:
-    """Main entry point."""
+def generate_solution(problem: Dict) -> Dict[str, Any] | None:
+    """Main entry point. Returns None when no template fits."""
     generator = SolutionGenerator()
     return generator.generate_solution(problem)
