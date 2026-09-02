@@ -51,18 +51,27 @@ def extract_keywords(text: str) -> List[str]:
     return [w for w in words if w not in stop_words and len(w) > 2]
 
 
+def _mentions(keyword: str, text: str) -> bool:
+    """True when `keyword` appears in `text` as a whole word.
+
+    Plain substring matching produced false positives that dominated
+    categorisation: "app" matched inside "bootstrappable", and "ai" matched
+    inside "failing", "email" and "explain".
+    """
+    return re.search(rf"\b{re.escape(keyword)}\b", text) is not None
+
+
 def categorize_problem(title: str, text: str) -> str:
-    """Categorize a problem based on its content."""
+    """Categorize a problem based on its content, or "general" if nothing matches."""
     combined = (title + " " + text).lower()
 
-    scores = {}
-    for category, keywords in CATEGORIES.items():
-        score = sum(1 for kw in keywords if kw in combined)
-        scores[category] = score
+    scores = {
+        category: sum(1 for kw in keywords if _mentions(kw, combined))
+        for category, keywords in CATEGORIES.items()
+    }
 
-    if scores:
-        return max(scores, key=scores.get)
-    return "general"
+    best = max(scores, key=scores.get)
+    return best if scores[best] > 0 else "general"
 
 
 def is_problem(title: str, text: str) -> bool:

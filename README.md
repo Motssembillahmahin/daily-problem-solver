@@ -125,12 +125,13 @@ Each day creates:
 
 ```
 solutions/2026-08-28/
-├── README.md           # Complete documentation
-├── PROBLEM.md          # Problem description
+├── README.md           # Usage docs for the generated tool
+├── PROBLEM.md          # Problem description and provenance
 ├── metadata.json       # Structured data
-├── frontend/           # Next.js app
-├── backend/            # Python API
-└── docs/               # Architecture docs
+├── <solution>.py       # The generated tool
+├── requirements.txt    # Its dependencies
+└── docs/
+    └── SOLUTION.md     # How the problem was picked and solved
 ```
 
 ## ⚙️ Configuration
@@ -176,7 +177,7 @@ The system maintains `data/solved_problems.json`:
       "date": "2026-08-28",
       "title": "AI File Organizer",
       "keywords": ["files", "organize", "automation"],
-      "type": "fullstack"
+      "type": "file_organizer"
     }
   ]
 }
@@ -196,7 +197,8 @@ def scrape_my_source():
 
 ### Change AI Model
 
-Edit `scripts/solver.py`:
+Ollama is used only for the optional deduplication check. Edit
+`scripts/dedup.py`:
 
 ```python
 # Use different model
@@ -206,9 +208,15 @@ response = ollama.chat(
 )
 ```
 
-### Modify Solution Type
+### Add a Solution Type
 
-Edit `scripts/extractor.py` to add new categories.
+Solutions come from templates in `scripts/smart_solver.py`. Add a generator
+method, register it in `SolutionGenerator.solution_templates`, and add its
+keywords to `analyze_problem`.
+
+### Add a Problem Category
+
+Edit `CATEGORIES` in `scripts/extractor.py`.
 
 ## 💡 Tips
 
