@@ -67,6 +67,8 @@ def scrape_reddit() -> List[Dict]:
                             post_data.get("created_utc", 0)
                         ).isoformat()
                     })
+            else:
+                print(f"   Warning: r/{subreddit} returned HTTP {response.status_code}")
         except Exception as e:
             print(f"   Warning: Failed to scrape r/{subreddit}: {e}")
             continue
@@ -146,13 +148,14 @@ def scrape_google_trends() -> List[Dict]:
 # Tags chosen to overlap the template library (files, csv, json, logs, email).
 STACKOVERFLOW_TAGS = ["python", "json", "csv", "logging", "file", "automation"]
 
-# Verified live 2026-09-03: filter=!nNPvSNVZBv returns HTTP 400
-# ("Invalid filter specified"), so it is omitted. Without it the API's default
-# filter omits body_markdown; the title alone still carries the problem.
+# Verified live 2026-09-03: the custom filter hash !nNPvSNVZBv returns HTTP 400
+# ("Invalid filter specified"), so it cannot be used. The documented built-in
+# filter `withbody` works today and populates the question body (as HTML) in
+# the `body` field - clean_text strips the tags/entities.
 STACKOVERFLOW_URL = (
     "https://api.stackexchange.com/2.3/questions"
     "?order=desc&sort=activity&pagesize=20&site=stackoverflow"
-    "&tagged={tag}"
+    "&tagged={tag}&filter=withbody"
 )
 
 
@@ -168,7 +171,7 @@ def scrape_stackoverflow() -> List[Dict]:
         for item in data.get("items", []):
             all_posts.append({
                 "title": clean_text(item.get("title", "")),
-                "text": clean_text(item.get("body_markdown", ""))[:500],
+                "text": clean_text(item.get("body", ""))[:500],
                 "source": "Stack Overflow",
                 "url": item.get("link", ""),
                 "score": item.get("score", 0),

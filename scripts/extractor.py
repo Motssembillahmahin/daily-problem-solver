@@ -4,7 +4,6 @@ Extracts problems from scraped content using keyword analysis.
 
 import re
 from typing import List, Dict
-from collections import Counter
 
 from scripts.matching import mentions
 
@@ -116,9 +115,7 @@ def calculate_priority(item: Dict) -> int:
         "Ask HN": 18,
         "GitHub Issues": 16,
         "Hacker News": 12,
-        "r/technology": 10,
-        "r/programming": 10,
-        "r/MachineLearning": 10,
+        "r/": 10,  # any subreddit, e.g. r/technology, r/webdev, r/datascience
         "Google Trends": 5,
     }
     for source, weight in source_weights.items():

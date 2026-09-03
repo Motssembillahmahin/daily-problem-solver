@@ -3,12 +3,7 @@ Smart Solution Generator - Creates REAL working solutions.
 Not templates - actual code that solves the problem.
 """
 
-import os
-import json
-import re
-from typing import Dict, Any, List
-from datetime import datetime
-from pathlib import Path
+from typing import Dict, Any
 
 from scripts.matching import mentions
 

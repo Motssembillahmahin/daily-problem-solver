@@ -45,7 +45,7 @@ SO_RESPONSE = {
     "items": [
         {
             "title": "How to stop my backup script from failing silently?",
-            "body_markdown": "It &#x27;doesn&#x27;t work&#x27; when the disk is full.<p>Help?</p>",
+            "body": "It &#x27;doesn&#x27;t work&#x27; when the disk is full.<p>Help?</p>",
             "link": "https://stackoverflow.com/q/1",
             "score": 12,
             "answer_count": 2,
@@ -80,6 +80,33 @@ def test_stackoverflow_cleans_html_from_body(monkeypatch):
     assert "&#x27;" not in text
     assert "<p>" not in text
     assert "doesn't work" in text
+
+
+def test_stackoverflow_populates_text_from_withbody_field(monkeypatch):
+    """The `withbody` filter returns the question body (HTML) in `body`.
+    text must be populated and stripped of HTML tags/entities."""
+    response = {
+        "items": [
+            {
+                "title": "Why does my CSV import silently drop rows?",
+                "body": "<p>It &quot;just skips&quot; rows with a trailing comma.</p>",
+                "link": "https://stackoverflow.com/q/2",
+                "score": 5,
+                "answer_count": 1,
+                "creation_date": 1756800000,
+                "tags": ["python", "csv"],
+            }
+        ]
+    }
+    monkeypatch.setattr(scraper, "fetch_json", lambda *a, **k: response)
+    monkeypatch.setattr(scraper, "STACKOVERFLOW_TAGS", ["python"])
+
+    text = scraper.scrape_stackoverflow()[0]["text"]
+
+    assert text != ""
+    assert "<p>" not in text
+    assert "&quot;" not in text
+    assert "just skips" in text
 
 
 def test_stackoverflow_returns_empty_when_fetch_fails(monkeypatch):
