@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-04",
+  "problem": {
+    "title": "Automation: how to automate transforming .doc to .docx?",
+    "description": "I have a bunch of .doc files in a folder which I need to convert to .docx. To manually convert the .doc to .docx is pretty simple: Open .doc in Word 2007 Click on Save As... Save it as .docx However, doing this for hundreds of files definitely ain't fun. =p How would you automate this?",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/2405417/automation-how-to-automate-transforming-doc-to-docx",
+    "category": "automation",
+    "keywords": [
+      "automation",
+      "automate",
+      "transforming",
+      "doc",
+      "docx",
+      "bunch",
+      "doc",
+      "files",
+      "folder",
+      "need"
+    ],
+    "priority": 22,
+    "created_at": "2010-03-08T22:54:41+00:00",
+    "reason": "Trending problem in automation category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "automation"
+}

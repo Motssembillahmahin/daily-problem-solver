@@ -61,7 +61,7 @@
     },
     {
       "date": "2026-08-31",
-      "title": "Launch HN: Almanac (YC S26) \u2013 AI that knows your company",
+      "title": "Launch HN: Almanac (YC S26) – AI that knows your company",
       "keywords": [
         "launch",
         "almanac",
@@ -92,6 +92,23 @@
         "built"
       ],
       "type": "json_formatter"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Automation: how to automate transforming .doc to .docx?",
+      "keywords": [
+        "automation",
+        "automate",
+        "transforming",
+        "doc",
+        "docx",
+        "bunch",
+        "doc",
+        "files",
+        "folder",
+        "need"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
