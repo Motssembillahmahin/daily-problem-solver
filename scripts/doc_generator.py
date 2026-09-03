@@ -5,6 +5,7 @@ Solution templates ship their own README.md with real usage instructions; this
 module never overwrites one, and only writes a README when the template omitted it.
 """
 
+import re
 from pathlib import Path
 from typing import Dict, List
 
@@ -14,6 +15,30 @@ DOC_FILENAME = "SOLUTION.md"
 
 # Files that describe the solution rather than implement it.
 _NON_CODE = {"README.md", "PROBLEM.md", "metadata.json", "requirements.txt"}
+
+# A script whose __main__ block exits with a usage message when required
+# arguments are missing - covers both a plain "Usage: ..." line and a
+# multi-command dispatcher that prints its own module docstring.
+_USAGE_ON_NO_ARGS = re.compile(
+    r"if\s+len\(sys\.argv\)\s*<\s*\d+\s*:\n(?:.*\n){0,6}?\s*sys\.exit\(1\)"
+)
+_SERVER_PORT = re.compile(r"port=(\d+)")
+
+
+def _classify_entry_point(content: str) -> str:
+    """How running this entry point actually behaves, inferred from its source.
+
+    - "server": it calls uvicorn.run(...) and blocks serving HTTP.
+    - "usage_on_no_args": it exits printing usage/available commands when
+      required arguments are missing.
+    - "runs_immediately": it takes no required arguments and performs its
+      default action (or starts a blocking loop) as soon as it's run.
+    """
+    if "uvicorn.run(" in content:
+        return "server"
+    if _USAGE_ON_NO_ARGS.search(content):
+        return "usage_on_no_args"
+    return "runs_immediately"
 
 
 def generate_documentation(problem_dir: Path, problem: Dict, solution: Dict) -> None:
@@ -44,7 +69,12 @@ def _has_dependencies(files: Dict[str, str]) -> bool:
 
 
 def _usage_block(files: Dict[str, str]) -> str:
-    """Install/run instructions derived from the files that were generated."""
+    """Install/run instructions derived from the files that were generated.
+
+    The instruction line is inferred per entry point from its actual source
+    (see _classify_entry_point), so it never claims a command list exists
+    for a blocking web server or a script that just runs with defaults.
+    """
     entries = _entry_points(files)
     if not entries:
         return "No runnable script was generated for this problem.\n"
@@ -56,7 +86,37 @@ def _usage_block(files: Dict[str, str]) -> str:
         lines.append(f"python {entry}")
     lines.append("```")
     lines.append("")
-    lines.append("Run a script with no arguments to see its available commands.")
+
+    shapes = {entry: _classify_entry_point(files[entry]) for entry in entries}
+    distinct = set(shapes.values())
+
+    if distinct == {"server"}:
+        ports = {m.group(1) for entry in entries if (m := _SERVER_PORT.search(files[entry]))}
+        if len(ports) == 1:
+            lines.append(f"This starts a local web server on http://localhost:{ports.pop()}.")
+        else:
+            lines.append("This starts a local web server.")
+    elif distinct == {"usage_on_no_args"}:
+        lines.append("Run a script with no arguments to see its usage instructions.")
+    elif distinct == {"runs_immediately"}:
+        lines.append(
+            "This script takes no required arguments; running it performs its "
+            "default action immediately (see the file for optional flags)."
+        )
+    else:
+        # Mixed shapes across multiple entry points: describe each explicitly
+        # rather than risk a claim that is only true for some of them.
+        for entry in entries:
+            shape = shapes[entry]
+            if shape == "server":
+                match = _SERVER_PORT.search(files[entry])
+                where = f" on http://localhost:{match.group(1)}" if match else ""
+                lines.append(f"`{entry}` starts a local web server{where}.")
+            elif shape == "usage_on_no_args":
+                lines.append(f"Run `{entry}` with no arguments to see its usage instructions.")
+            else:
+                lines.append(f"`{entry}` takes no required arguments and runs immediately.")
+
     return "\n".join(lines) + "\n"
 
 
