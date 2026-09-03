@@ -1,6 +1,6 @@
 # 🤖 Daily Problem Solver
 
-> AI-powered system that automatically finds real-world problems and generates full-stack solutions every day.
+> System that automatically finds real-world problems and ships a matching Python CLI solution from a curated template library every day - or ships nothing when no template fits.
 
 ## What It Does
 
@@ -9,7 +9,7 @@ Every day at 12:00 AM BDT, this system:
 1. **Scrapes** real problems from Stack Overflow, Ask HN, GitHub issues, Hacker News, Reddit, and Google Trends
 2. **Extracts** real problems people are facing
 3. **Checks** uniqueness against previously solved problems
-4. **Generates** a complete full-stack solution using AI agents
+4. **Selects** a matching template from the library by keyword fit and generates its files - or skips the day if nothing fits well enough
 5. **Pushes** everything to GitHub automatically
 
 ## 🎯 Goal
@@ -104,20 +104,18 @@ describe something that was built, not a problem to solve. If no scraped problem
 matches any template in the library, the run ships nothing rather than an unrelated
 tool.
 
-### AI Agent System
+### Pipeline Stages
 
-```
-┌─────────────────────────────────────────────┐
-│              AI Agent Pipeline               │
-├─────────────────────────────────────────────┤
-│                                             │
-│  Problem ──→ Analyzer ──→ Coder ──→ Docs    │
-│                                             │
-│  All running locally via Ollama             │
-│  100% free, no API keys needed             │
-│                                             │
-└─────────────────────────────────────────────┘
-```
+No LLM writes code in this pipeline. Each day's run moves through fixed,
+deterministic stages:
+
+1. **Scrape** - pull raw posts/questions/issues from the sources above
+2. **Extract** - keep only items with real problem indicators and score them
+3. **Deduplicate** - reject anything too similar to a previously solved problem
+   (see below - this is the only stage that optionally uses a local LLM)
+4. **Template fit** - score the problem against every template's keywords
+5. **Generate or skip** - if a template clears the fit threshold, its files are
+   written; otherwise the day ships nothing rather than an unrelated tool
 
 ### Deduplication
 
@@ -219,7 +217,7 @@ response = ollama.chat(
 
 Solutions come from templates in `scripts/smart_solver.py`. Add a generator
 method, register it in `SolutionGenerator.solution_templates`, and add its
-keywords to `analyze_problem`.
+keywords to `SolutionGenerator.TEMPLATE_KEYWORDS`.
 
 ### Add a Problem Category
 
@@ -236,6 +234,7 @@ Edit `CATEGORIES` in `scripts/extractor.py`.
 ## 🙏 Acknowledgments
 
 - Built to maintain GitHub activity streak
-- Powered by local AI (Ollama)
-- Uses free APIs from Reddit, Hacker News, and Google Trends
+- Deduplication optionally checked by local AI (Ollama)
+- Uses free APIs from Stack Overflow, Ask HN, GitHub Issues, Hacker News,
+  Reddit, and Google Trends
 
