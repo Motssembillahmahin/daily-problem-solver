@@ -110,8 +110,8 @@ following files:
 {_usage_block(files)}
 ## How This Was Produced
 
-1. **Scrape** - trending posts were collected from Reddit, Hacker News,
-   Google Trends and a Twitter mirror.
+1. **Scrape** - problems and trending posts were collected from Stack Overflow,
+   Ask HN, GitHub issues, Hacker News, Reddit and Google Trends.
 2. **Extract** - posts containing problem indicators were scored by engagement
    and source weight.
 3. **Deduplicate** - the problem was compared against `data/solved_problems.json`

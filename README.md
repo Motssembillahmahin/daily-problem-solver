@@ -6,7 +6,7 @@
 
 Every day at 12:00 AM BDT, this system:
 
-1. **Scrapes** trending problems from Reddit, Hacker News, Google Trends, and Twitter
+1. **Scrapes** real problems from Stack Overflow, Ask HN, GitHub issues, Hacker News, Reddit, and Google Trends
 2. **Extracts** real problems people are facing
 3. **Checks** uniqueness against previously solved problems
 4. **Generates** a complete full-stack solution using AI agents
@@ -54,7 +54,7 @@ daily-problem-solver/
 | Backend | Python (FastAPI) |
 | AI Model | Ollama + Llama 3.2 |
 | Workflow | GitHub Actions |
-| Scraping | Reddit, HN, Google Trends, Twitter |
+| Scraping | Stack Overflow, Ask HN, GitHub issues, HN, Reddit, Google Trends |
 
 ## 🚀 Quick Start
 
@@ -92,10 +92,17 @@ python main.py
 
 | Source | What It Captures |
 |--------|------------------|
-| Reddit | Programming discussions, pain points |
-| Hacker News | Tech problems, startup ideas |
-| Google Trends | Trending search topics |
-| Twitter | Real-time complaints & needs |
+| Stack Overflow | Tagged questions - every item is a stated problem |
+| Ask HN | Questions from HN with self-text |
+| GitHub Issues | Reported bugs with discussion |
+| Hacker News | Top stories (link posts rarely qualify as problems) |
+| Reddit | Subreddit discussions (unreliable from CI; non-fatal) |
+| Google Trends | Trending searches (low weight) |
+
+Product announcements ("Show HN", "Launch HN", "Introducing") are rejected: they
+describe something that was built, not a problem to solve. If no scraped problem
+matches any template in the library, the run ships nothing rather than an unrelated
+tool.
 
 ### AI Agent System
 
