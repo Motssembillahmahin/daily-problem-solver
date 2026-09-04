@@ -109,6 +109,23 @@
         "need"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-05",
+      "title": "Using Powershell to Bulk Import Large CSV into SQL Server",
+      "keywords": [
+        "using",
+        "powershell",
+        "bulk",
+        "import",
+        "large",
+        "csv",
+        "into",
+        "sql",
+        "server",
+        "came"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {

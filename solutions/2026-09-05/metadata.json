@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-05",
+  "problem": {
+    "title": "Using Powershell to Bulk Import Large CSV into SQL Server",
+    "description": "I came across a post discussing how to use Powershell to bulk import massive data relatively fast. I have a typical csv file with about 5 million rows formatted in the usual way. I keep getting the same error messages regardless if I choose to import a txt or csv file. Playing around with the csvdelimiter/firstcolumnnames section also created their own issues. I've spent hours trying to figure out how to get it to work with MY csv files and I keep getting the same error messages no matter what I",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/48323659/using-powershell-to-bulk-import-large-csv-into-sql-server",
+    "category": "data",
+    "keywords": [
+      "using",
+      "powershell",
+      "bulk",
+      "import",
+      "large",
+      "csv",
+      "into",
+      "sql",
+      "server",
+      "came"
+    ],
+    "priority": 20,
+    "created_at": "2018-01-18T14:32:44+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "data"
+}
