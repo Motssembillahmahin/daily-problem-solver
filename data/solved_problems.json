@@ -126,6 +126,23 @@
         "came"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-06",
+      "title": "CSV with too few values in one row does not cause an error in pandas",
+      "keywords": [
+        "csv",
+        "values",
+        "one",
+        "row",
+        "cause",
+        "error",
+        "pandas",
+        "example",
+        "csv",
+        "three"
+      ],
+      "type": "csv_analyzer"
     }
   ],
   "metadata": {
