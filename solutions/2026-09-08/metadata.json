@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-08",
+  "problem": {
+    "title": "Python - How to write a Windows path to a json file?",
+    "description": "I am working together with a colleague and he has Ubuntu while I have Windows. We have a dataset of JSON files which have in them a \"path\" written. His paths look like this: 'C:/Users/krock/Desktop/FIIT/BP/Ubuntu/luadb/etc/luarocks_test/modules/30log/share/lua/5.3/30log.lua' But this doesn't work on Windows, I was trying to do some_string.replace('/', '\\\\') But this results in strings written in json that look like this: 'C:\\\\Users\\\\krock\\\\Desktop\\\\FIIT\\\\BP\\\\Ubuntu\\\\luadb\\\\etc\\\\luarocks_test\\\\da",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/61233753/python-how-to-write-a-windows-path-to-a-json-file",
+    "category": "general",
+    "keywords": [
+      "python",
+      "write",
+      "windows",
+      "path",
+      "json",
+      "file",
+      "working",
+      "together",
+      "colleague",
+      "ubuntu"
+    ],
+    "priority": 21,
+    "created_at": "2020-04-15T16:27:29+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}

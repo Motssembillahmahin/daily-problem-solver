@@ -160,6 +160,23 @@
         "try"
       ],
       "type": "log_analyzer"
+    },
+    {
+      "date": "2026-09-08",
+      "title": "Python - How to write a Windows path to a json file?",
+      "keywords": [
+        "python",
+        "write",
+        "windows",
+        "path",
+        "json",
+        "file",
+        "working",
+        "together",
+        "colleague",
+        "ubuntu"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
