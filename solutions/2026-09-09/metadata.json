@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-09",
+  "problem": {
+    "title": "How do I use '~' (tilde) in the context of paths?",
+    "description": "To fix a problem in code for work, I was told to \"use a path relative to ~\". What does ~ mean in a file path? How can I make a path that is relative to ~ , and use that path to open files in Python?",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/3488603/how-do-i-use-tilde-in-the-context-of-paths",
+    "category": "general",
+    "keywords": [
+      "use",
+      "tilde",
+      "context",
+      "paths",
+      "fix",
+      "problem",
+      "code",
+      "work",
+      "told",
+      "use"
+    ],
+    "priority": 26,
+    "created_at": "2010-08-15T18:13:35+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}

@@ -177,6 +177,23 @@
         "ubuntu"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-09",
+      "title": "How do I use '~' (tilde) in the context of paths?",
+      "keywords": [
+        "use",
+        "tilde",
+        "context",
+        "paths",
+        "fix",
+        "problem",
+        "code",
+        "work",
+        "told",
+        "use"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
