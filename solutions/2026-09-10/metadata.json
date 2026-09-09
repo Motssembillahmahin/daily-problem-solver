@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-10",
+  "problem": {
+    "title": "Pandas Generate Multiple xlsx file from CSV",
+    "description": "I'm trying to generate multiple excel files from a single CSV file, but after generating few files getting below error: UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 8: ordinal not in range(128) the error is coming after generating few files, I'm not sure if any specific with file or any issue in code, kindly help the code is as below: #!/usr/bin/env python # coding: utf-8 import pandas as pd import pandas.io.formats.excel pandas.io.formats.excel.header_style = None class ",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/52980181/pandas-generate-multiple-xlsx-file-from-csv",
+    "category": "data",
+    "keywords": [
+      "pandas",
+      "generate",
+      "multiple",
+      "xlsx",
+      "file",
+      "csv",
+      "trying",
+      "generate",
+      "multiple",
+      "excel"
+    ],
+    "priority": 20,
+    "created_at": "2018-10-25T01:46:01+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "data"
+}
