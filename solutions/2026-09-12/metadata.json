@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-12",
+  "problem": {
+    "title": "Why does my Py-Shiny web app download an empty file?",
+    "description": "I'm working on a web app that searches a database and returns the relevant information as CSV files in a Zip archive (company security policy prevents me from returning the information as tabs in an XLSX file). When I run the get_data() function on its own, I get a CSV file with the expected information in it. But when I use the app, I get a CSV file that is empty except for the header row. from shiny import render, ui, reactive from shiny.express import input from pandas import DataFrame import",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/80002466/why-does-my-py-shiny-web-app-download-an-empty-file",
+    "category": "data",
+    "keywords": [
+      "shiny",
+      "web",
+      "app",
+      "download",
+      "empty",
+      "file",
+      "working",
+      "web",
+      "app",
+      "searches"
+    ],
+    "priority": 20,
+    "created_at": "2026-09-11T18:14:38+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "data"
+}

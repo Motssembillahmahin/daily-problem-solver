@@ -228,6 +228,23 @@
         "got"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-12",
+      "title": "Why does my Py-Shiny web app download an empty file?",
+      "keywords": [
+        "shiny",
+        "web",
+        "app",
+        "download",
+        "empty",
+        "file",
+        "working",
+        "web",
+        "app",
+        "searches"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
