@@ -245,6 +245,23 @@
         "searches"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-13",
+      "title": "How to change pip unpacking folder?",
+      "keywords": [
+        "change",
+        "pip",
+        "unpacking",
+        "folder",
+        "need",
+        "install",
+        "tensorflow",
+        "raspberry",
+        "executing",
+        "pip"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
