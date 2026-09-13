@@ -262,6 +262,23 @@
         "pip"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-14",
+      "title": "Python script to read multiple excel files in one directory and convert them to .csv files in another directory",
+      "keywords": [
+        "python",
+        "script",
+        "read",
+        "multiple",
+        "excel",
+        "files",
+        "one",
+        "directory",
+        "convert",
+        "them"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {

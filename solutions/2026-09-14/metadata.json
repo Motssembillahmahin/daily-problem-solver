@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-14",
+  "problem": {
+    "title": "Python script to read multiple excel files in one directory and convert them to .csv files in another directory",
+    "description": "I am relatively new to python and Stackoverflow but hoping anyone can shed some light of my current problem. I have a python script that takes excel files (.xls, and .xlsx) from one directory and converts them to .csv files to another directory. It works perfectly fine on my sample excel files (consisted of 4 columns and 1 row for the purpose of testing), but when I try to run my script against a different directory that has excel files (alot larger in file size) I am getting an assertion error.",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/42033156/python-script-to-read-multiple-excel-files-in-one-directory-and-convert-them-to",
+    "category": "automation",
+    "keywords": [
+      "python",
+      "script",
+      "read",
+      "multiple",
+      "excel",
+      "files",
+      "one",
+      "directory",
+      "convert",
+      "them"
+    ],
+    "priority": 20,
+    "created_at": "2017-02-03T21:18:43+00:00",
+    "reason": "Trending problem in automation category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "automation"
+}
