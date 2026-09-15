@@ -296,6 +296,23 @@
         "there"
       ],
       "type": "log_analyzer"
+    },
+    {
+      "date": "2026-09-16",
+      "title": "How to enable the query logs in laravel 5",
+      "keywords": [
+        "enable",
+        "query",
+        "logs",
+        "laravel",
+        "searching",
+        "while",
+        "log",
+        "sql",
+        "queries",
+        "executed"
+      ],
+      "type": "log_analyzer"
     }
   ],
   "metadata": {
