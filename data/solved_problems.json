@@ -313,6 +313,23 @@
         "executed"
       ],
       "type": "log_analyzer"
+    },
+    {
+      "date": "2026-09-17",
+      "title": "Laravel validator and excel files error",
+      "keywords": [
+        "laravel",
+        "validator",
+        "excel",
+        "files",
+        "error",
+        "input",
+        "field",
+        "allaow",
+        "peoples",
+        "upload"
+      ],
+      "type": "csv_analyzer"
     }
   ],
   "metadata": {

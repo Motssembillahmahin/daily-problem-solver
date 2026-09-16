@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-17",
+  "problem": {
+    "title": "Laravel validator and excel files error",
+    "description": "I have an input field who allaow peoples to upload files. I want that they can upload, word files like doc, and files like csv,xlsx. When i try with a .doc no problem at all but when i try with an excel files, the validator fail and say that not the good extension. Here you can see my code, the two lines of comments was an other solution i have try , and it don't work too :(. Any help is welcome. public function postFile(Request $request) { //Règle de validation avec les type de fichiers accepté",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/42089659/laravel-validator-and-excel-files-error",
+    "category": "data",
+    "keywords": [
+      "laravel",
+      "validator",
+      "excel",
+      "files",
+      "error",
+      "input",
+      "field",
+      "allaow",
+      "peoples",
+      "upload"
+    ],
+    "priority": 23,
+    "created_at": "2017-02-07T12:15:13+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "csv_analyzer",
+  "source": "Stack Overflow",
+  "category": "data"
+}
