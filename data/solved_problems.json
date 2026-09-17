@@ -330,6 +330,23 @@
         "upload"
       ],
       "type": "csv_analyzer"
+    },
+    {
+      "date": "2026-09-18",
+      "title": "How to install virtualenv on windows path without permission denied error?",
+      "keywords": [
+        "install",
+        "virtualenv",
+        "windows",
+        "path",
+        "without",
+        "permission",
+        "denied",
+        "error",
+        "got",
+        "new"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
