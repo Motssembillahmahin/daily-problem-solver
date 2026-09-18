@@ -347,6 +347,23 @@
         "new"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-19",
+      "title": "raise ValueError(\"Cannot convert {0!r} to Excel\".format(value))",
+      "keywords": [
+        "raise",
+        "valueerror",
+        "cannot",
+        "convert",
+        "excel",
+        "format",
+        "value",
+        "trying",
+        "use",
+        "dropna"
+      ],
+      "type": "csv_analyzer"
     }
   ],
   "metadata": {
