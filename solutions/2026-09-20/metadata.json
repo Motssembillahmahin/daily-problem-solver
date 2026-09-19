@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-20",
+  "problem": {
+    "title": "How to convert a genome-scale model in .json format into an SBML/MATLAB file (.xml/.mat format)",
+    "description": "I have a genome-scale metabolic model (a.k.a. GEM) made by other people who are not a part of my lab, and I would like to use it. The problem: it is in the .json format, and I need it to be in the .xml (or .mat) format. How can I convert it?",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/80003453/how-to-convert-a-genome-scale-model-in-json-format-into-an-sbml-matlab-file-x",
+    "category": "ai_ml",
+    "keywords": [
+      "convert",
+      "genome",
+      "scale",
+      "model",
+      "json",
+      "format",
+      "into",
+      "sbml",
+      "matlab",
+      "file"
+    ],
+    "priority": 20,
+    "created_at": "2026-09-16T09:39:20+00:00",
+    "reason": "Trending problem in ai_ml category"
+  },
+  "solution_type": "json_formatter",
+  "source": "Stack Overflow",
+  "category": "ai_ml"
+}

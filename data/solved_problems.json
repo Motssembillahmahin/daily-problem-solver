@@ -364,6 +364,23 @@
         "dropna"
       ],
       "type": "csv_analyzer"
+    },
+    {
+      "date": "2026-09-20",
+      "title": "How to convert a genome-scale model in .json format into an SBML/MATLAB file (.xml/.mat format)",
+      "keywords": [
+        "convert",
+        "genome",
+        "scale",
+        "model",
+        "json",
+        "format",
+        "into",
+        "sbml",
+        "matlab",
+        "file"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {
