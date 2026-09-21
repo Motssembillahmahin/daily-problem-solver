@@ -398,6 +398,23 @@
         "records"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-22",
+      "title": "Warning: simplexml_load_string(): Memory allocation failed : growing buffer",
+      "keywords": [
+        "warning",
+        "simplexml_load_string",
+        "memory",
+        "allocation",
+        "failed",
+        "growing",
+        "buffer",
+        "following",
+        "code",
+        "used"
+      ],
+      "type": "csv_analyzer"
     }
   ],
   "metadata": {

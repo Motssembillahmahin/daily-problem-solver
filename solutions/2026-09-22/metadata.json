@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-22",
+  "problem": {
+    "title": "Warning: simplexml_load_string(): Memory allocation failed : growing buffer",
+    "description": "Following code is used to convert an XLSX file to CSV using PHPExcel: <?php require_once 'PHPExcel/PHPExcel/IOFactory.php'; $excel = PHPExcel_IOFactory::load(\"test123.xlsx\"); $writer = PHPExcel_IOFactory::createWriter($excel, 'CSV'); $writer->setDelimiter(\";\"); $writer->setEnclosure(\"\"); $writer->save(\"test123.csv\"); ?> I am trying to convert large excel file, 70MB in size, to CSV. I am getting this error: Warning: simplexml_load_string(): Memory allocation failed : growing buffer I have increas",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/20138597/warning-simplexml-load-string-memory-allocation-failed-growing-buffer",
+    "category": "data",
+    "keywords": [
+      "warning",
+      "simplexml_load_string",
+      "memory",
+      "allocation",
+      "failed",
+      "growing",
+      "buffer",
+      "following",
+      "code",
+      "used"
+    ],
+    "priority": 20,
+    "created_at": "2013-11-22T06:37:49+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "csv_analyzer",
+  "source": "Stack Overflow",
+  "category": "data"
+}
