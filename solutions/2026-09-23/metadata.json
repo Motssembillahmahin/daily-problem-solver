@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-23",
+  "problem": {
+    "title": "How to convert XML Word Documents to DOCX?",
+    "description": "I have been given a series of folders with large amounts of Word documents in .xml formatting. They each contain some VBA code, but the code on all of them has already been run, so I don't need to keep this. I need to print all of the files in each folder, but due to constraints on XML files on the network, I can't simply mass-print them from Windows Explorer, so I need to convert them to .docx (or .doc) first. How can I go about doing this? I tried a simple python script using python-docx: impo",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/43630270/how-to-convert-xml-word-documents-to-docx",
+    "category": "automation",
+    "keywords": [
+      "convert",
+      "xml",
+      "word",
+      "documents",
+      "docx",
+      "given",
+      "series",
+      "folders",
+      "large",
+      "amounts"
+    ],
+    "priority": 20,
+    "created_at": "2017-04-26T09:32:23+00:00",
+    "reason": "Trending problem in automation category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "automation"
+}
