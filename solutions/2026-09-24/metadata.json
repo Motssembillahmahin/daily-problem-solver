@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-24",
+  "problem": {
+    "title": "How to get the path and name of the Python file that is currently executing?",
+    "description": "I have scripts calling other script files but I need to get the filepath of the file that is currently running within the process. For example, let's say I have three files. Using execfile : script_1.py calls script_2.py . In turn, script_2.py calls script_3.py . How can I get the file name and path of script_3.py , from code within script_3.py , without having to pass that information as arguments from script_2.py ? (Executing os.getcwd() returns the original starting script's filepath not the ",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/50499/how-to-get-the-path-and-name-of-the-python-file-that-is-currently-executing",
+    "category": "automation",
+    "keywords": [
+      "get",
+      "path",
+      "name",
+      "python",
+      "file",
+      "currently",
+      "executing",
+      "scripts",
+      "calling",
+      "script"
+    ],
+    "priority": 45,
+    "created_at": "2008-09-08T19:41:10+00:00",
+    "reason": "Trending problem in automation category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "automation"
+}
