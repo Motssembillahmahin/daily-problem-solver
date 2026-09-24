@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-25",
+  "problem": {
+    "title": "How to compare yaml files regardless of ordering differences?",
+    "description": "I need to compare yaml files that are generated from two different processes and are ordered differently and detect if they are logically the same ideally in python. yaml file 1: apiVersion: apps/v1 kind: Deployment metadata: name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx template: metadata: labels: app: nginx spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 yaml file 2: apiVersion: apps/v1 kind: Deployment metadata: la",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/68488797/how-to-compare-yaml-files-regardless-of-ordering-differences",
+    "category": "mobile",
+    "keywords": [
+      "compare",
+      "yaml",
+      "files",
+      "regardless",
+      "ordering",
+      "differences",
+      "need",
+      "compare",
+      "yaml",
+      "files"
+    ],
+    "priority": 21,
+    "created_at": "2021-07-22T16:54:28+00:00",
+    "reason": "Trending problem in mobile category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "mobile"
+}
