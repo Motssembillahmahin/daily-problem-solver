@@ -483,6 +483,23 @@
         "recommend"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-27",
+      "title": "log4j writing to console but not to file (Liferay + Tomcat)",
+      "keywords": [
+        "log4j",
+        "writing",
+        "console",
+        "file",
+        "liferay",
+        "tomcat",
+        "recently",
+        "issues",
+        "liferay",
+        "tomcat"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {

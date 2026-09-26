@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-27",
+  "problem": {
+    "title": "log4j writing to console but not to file (Liferay + Tomcat)",
+    "description": "I've recently had issues with my Liferay/Tomcat logs getting clogged up from several portlets logging to the same files, which makes it tough to track down issues sometimes. Decided I'd like to have a log file for each portlet so it is easier to track down issues and I've found some helpful articles, but no matter what I try I cannot get the custom log file to be created (and by extension written to). As per this article , I've added the following lines to liferay-plugin-package.properties: port",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/18640215/log4j-writing-to-console-but-not-to-file-liferay-tomcat",
+    "category": "health",
+    "keywords": [
+      "log4j",
+      "writing",
+      "console",
+      "file",
+      "liferay",
+      "tomcat",
+      "recently",
+      "issues",
+      "liferay",
+      "tomcat"
+    ],
+    "priority": 20,
+    "created_at": "2013-09-05T15:21:08+00:00",
+    "reason": "Trending problem in health category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "health"
+}
