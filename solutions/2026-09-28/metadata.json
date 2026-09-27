@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-28",
+  "problem": {
+    "title": "Python error log location",
+    "description": "I am developing a python application on flask framework. And I use .wsgi to deploy it. I got confused by error log locations. It looks like Python errors and debug information are put into different log files. First of all, I specify both access and error log locations in the apache vhost file. <VirtualHost *:myport> ... CustomLog /homedir/access.log common ErrorLog /homedir/error.log ... </VirtualHost> I also know there is another apache error log, /var/log/httpd/error_log . My access logs were",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/22334440/python-error-log-location",
+    "category": "devops",
+    "keywords": [
+      "python",
+      "error",
+      "log",
+      "location",
+      "developing",
+      "python",
+      "application",
+      "flask",
+      "framework",
+      "use"
+    ],
+    "priority": 20,
+    "created_at": "2014-03-11T19:13:50+00:00",
+    "reason": "Trending problem in devops category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "devops"
+}

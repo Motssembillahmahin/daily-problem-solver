@@ -500,6 +500,23 @@
         "tomcat"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-28",
+      "title": "Python error log location",
+      "keywords": [
+        "python",
+        "error",
+        "log",
+        "location",
+        "developing",
+        "python",
+        "application",
+        "flask",
+        "framework",
+        "use"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
