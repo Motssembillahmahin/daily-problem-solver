@@ -517,6 +517,23 @@
         "use"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-09-29",
+      "title": "Deserialize String from API in FlutterFlow",
+      "keywords": [
+        "deserialize",
+        "string",
+        "api",
+        "flutterflow",
+        "working",
+        "api",
+        "returns",
+        "json",
+        "below",
+        "turns"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {
