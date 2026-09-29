@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-30",
+  "problem": {
+    "title": "Mule - JSON to XML - Unbound prefix",
+    "description": "With my mule flow I get a JSON message and I use a JSON to XML transformer to send the XML to a Web Service. HTTP => JSON to XML => WS Consumer The XML needs a prefix \" int: \" : <int:contact>Name</int:contact> And the JSON format is like this: { \"Modify\":{ \"int:contact\":\"Name\" } } The JSON to XML transformer return an error: javax.xml.stream.XMLStreamException: Unbound prefix: int How can I pass the prefix?",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/35222950/mule-json-to-xml-unbound-prefix",
+    "category": "general",
+    "keywords": [
+      "mule",
+      "json",
+      "xml",
+      "unbound",
+      "prefix",
+      "mule",
+      "flow",
+      "get",
+      "json",
+      "message"
+    ],
+    "priority": 20,
+    "created_at": "2016-02-05T11:24:27+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "json_formatter",
+  "source": "Stack Overflow",
+  "category": "general"
+}

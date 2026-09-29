@@ -534,6 +534,23 @@
         "turns"
       ],
       "type": "json_formatter"
+    },
+    {
+      "date": "2026-09-30",
+      "title": "Mule - JSON to XML - Unbound prefix",
+      "keywords": [
+        "mule",
+        "json",
+        "xml",
+        "unbound",
+        "prefix",
+        "mule",
+        "flow",
+        "get",
+        "json",
+        "message"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {
