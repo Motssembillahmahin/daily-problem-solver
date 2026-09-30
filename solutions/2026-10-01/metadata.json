@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-01",
+  "problem": {
+    "title": "Sharepoint 2013 Add large files with rest api",
+    "description": "I am working on a project to copy files from one document library to another in Sharepoint 2013 via jquery and the rest api. My solution is based off of this http://techmikael.blogspot.com/2013/07/how-to-copy-files-between-sites-using.html The following code works for smaller file sizes (64mb or less). However I am getting an error when attempting to copy larger files (128Mb and up). The addFileBinary function returns to the error callback with \"Not enough storage is available to complete this o",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/24438818/sharepoint-2013-add-large-files-with-rest-api",
+    "category": "webdev",
+    "keywords": [
+      "sharepoint",
+      "2013",
+      "add",
+      "large",
+      "files",
+      "rest",
+      "api",
+      "working",
+      "project",
+      "copy"
+    ],
+    "priority": 20,
+    "created_at": "2014-06-26T19:38:45+00:00",
+    "reason": "Trending problem in webdev category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "webdev"
+}

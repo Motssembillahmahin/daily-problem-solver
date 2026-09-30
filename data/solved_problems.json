@@ -551,6 +551,23 @@
         "message"
       ],
       "type": "json_formatter"
+    },
+    {
+      "date": "2026-10-01",
+      "title": "Sharepoint 2013 Add large files with rest api",
+      "keywords": [
+        "sharepoint",
+        "2013",
+        "add",
+        "large",
+        "files",
+        "rest",
+        "api",
+        "working",
+        "project",
+        "copy"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
