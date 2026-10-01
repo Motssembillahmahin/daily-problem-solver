@@ -568,6 +568,23 @@
         "copy"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-02",
+      "title": "No such file or directory @ rb_sysopen",
+      "keywords": [
+        "file",
+        "directory",
+        "rb_sysopen",
+        "using",
+        "ruby",
+        "run",
+        "code",
+        "csv",
+        "foreach",
+        "public"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {

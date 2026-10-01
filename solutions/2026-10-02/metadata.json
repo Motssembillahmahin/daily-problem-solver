@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-02",
+  "problem": {
+    "title": "No such file or directory @ rb_sysopen",
+    "description": "I'm using Ruby 2.1.1 When I run this code: <CSV.foreach(\"public/data/original/example_data.csv\",headers: true, converters: :numeric) do |info| I get an error: No such file or directory @ rb_sysopen It works if I place example_data.csv in the same directory as shown below, but my boss said it can't be that way he wants all *.csv files in a different directory: <CSV.foreach(\"example_data.csv\",headers: true, converters: :numeric) do |info|",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/22818611/no-such-file-or-directory-rb-sysopen",
+    "category": "data",
+    "keywords": [
+      "file",
+      "directory",
+      "rb_sysopen",
+      "using",
+      "ruby",
+      "run",
+      "code",
+      "csv",
+      "foreach",
+      "public"
+    ],
+    "priority": 20,
+    "created_at": "2014-04-02T17:21:06+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "data"
+}
