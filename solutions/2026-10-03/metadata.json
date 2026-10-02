@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-03",
+  "problem": {
+    "title": "Makefile for python scripts",
+    "description": "I have files to send but I am a little bit confused on how to do it. I had to write two codes in python (say A.py and B.py) and it is required to create a Makefile such that typing \"make\" in bash in the folder would create the executables for A and B. I do not have Unix and I never used it. I'm a Windows user. Is this something I should write in my .py files? And how can I check if I am doing it right if I'm on Windows? I saw this post Python Script Executed with Makefile but I am not sure to un",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/62776247/makefile-for-python-scripts",
+    "category": "automation",
+    "keywords": [
+      "makefile",
+      "python",
+      "scripts",
+      "files",
+      "send",
+      "little",
+      "bit",
+      "confused",
+      "write",
+      "two"
+    ],
+    "priority": 21,
+    "created_at": "2020-07-07T13:20:11+00:00",
+    "reason": "Trending problem in automation category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "automation"
+}

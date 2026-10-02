@@ -585,6 +585,23 @@
         "public"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-03",
+      "title": "Makefile for python scripts",
+      "keywords": [
+        "makefile",
+        "python",
+        "scripts",
+        "files",
+        "send",
+        "little",
+        "bit",
+        "confused",
+        "write",
+        "two"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
