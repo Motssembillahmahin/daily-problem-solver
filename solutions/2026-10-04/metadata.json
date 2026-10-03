@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-04",
+  "problem": {
+    "title": "\"java.io.FileNotFoundException (No such file or directory)\"",
+    "description": "I have a class in my project to upload an image and save in my database and if successful, save it locally. This works and I am able to save the the image in a custom folder I created on my android phone. However, in another class, I'm trying to download an encoded image in text form and save it locally using the method i used above but it doesn't work anymore. It seems I can't create the folder. I don't understand how it worked on my other class and not in this I tried checking my manifest file",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/55554899/java-io-filenotfoundexception-no-such-file-or-directory",
+    "category": "data",
+    "keywords": [
+      "java",
+      "filenotfoundexception",
+      "file",
+      "directory",
+      "class",
+      "project",
+      "upload",
+      "image",
+      "save",
+      "database"
+    ],
+    "priority": 20,
+    "created_at": "2019-04-07T01:36:39+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "data"
+}

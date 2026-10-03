@@ -602,6 +602,23 @@
         "two"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-04",
+      "title": "\"java.io.FileNotFoundException (No such file or directory)\"",
+      "keywords": [
+        "java",
+        "filenotfoundexception",
+        "file",
+        "directory",
+        "class",
+        "project",
+        "upload",
+        "image",
+        "save",
+        "database"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
