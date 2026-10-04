@@ -619,6 +619,23 @@
         "database"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-05",
+      "title": "Excel VBA: importing CSV with dates as dd/mm/yyyy",
+      "keywords": [
+        "excel",
+        "vba",
+        "importing",
+        "csv",
+        "dates",
+        "yyyy",
+        "understand",
+        "fairly",
+        "common",
+        "problem"
+      ],
+      "type": "csv_analyzer"
     }
   ],
   "metadata": {

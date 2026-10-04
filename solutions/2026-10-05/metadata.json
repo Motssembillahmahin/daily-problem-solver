@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-05",
+  "problem": {
+    "title": "Excel VBA: importing CSV with dates as dd/mm/yyyy",
+    "description": "I understand this is a fairly common problem, but I'm yet to find a reliable solution. I have data in a csv file with the first column formatted dd/mm/yyyy. When I open it with Workbooks.OpenText it defaults to mm/dd/yyyy until it figures out that what it thinks is the month exceeds 12, then reverts to dd/mm/yyyy. This is my test code, which tries to force it as xlDMYFormat, and I've also tried the text format. I understand this problem only applies to *.csv files, not *.txt, but that isn't an a",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/2634352/excel-vba-importing-csv-with-dates-as-dd-mm-yyyy",
+    "category": "data",
+    "keywords": [
+      "excel",
+      "vba",
+      "importing",
+      "csv",
+      "dates",
+      "yyyy",
+      "understand",
+      "fairly",
+      "common",
+      "problem"
+    ],
+    "priority": 22,
+    "created_at": "2010-04-14T01:42:52+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "csv_analyzer",
+  "source": "Stack Overflow",
+  "category": "data"
+}
