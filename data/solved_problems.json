@@ -636,6 +636,23 @@
         "problem"
       ],
       "type": "csv_analyzer"
+    },
+    {
+      "date": "2026-10-06",
+      "title": "Looking for advice on how to work with json files that sort data in atypical format",
+      "keywords": [
+        "looking",
+        "advice",
+        "work",
+        "json",
+        "files",
+        "sort",
+        "data",
+        "atypical",
+        "format",
+        "working"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
