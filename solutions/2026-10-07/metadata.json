@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-07",
+  "problem": {
+    "title": "PyCharm option Jupyter: Notebook File Root (Set the root directory for Jupyter Notebooks) missing",
+    "description": "I'm looking for the PyCharm equivalent of this option in VS Code: Jupyter: Notebook File Root Set the root directory for Jupyter Notebooks I usually set it to ${workspaceFolder} instead of the folder in which the .ipynb is. I can't find how to do it in PyCharm. I am not allowed to use os.chdir() or %cd blabla",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/80007464/pycharm-option-jupyter-notebook-file-root-set-the-root-directory-for-jupyter-n",
+    "category": "general",
+    "keywords": [
+      "pycharm",
+      "option",
+      "jupyter",
+      "notebook",
+      "file",
+      "root",
+      "set",
+      "root",
+      "directory",
+      "jupyter"
+    ],
+    "priority": 20,
+    "created_at": "2026-10-02T10:44:56+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}

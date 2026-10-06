@@ -653,6 +653,23 @@
         "working"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-07",
+      "title": "PyCharm option Jupyter: Notebook File Root (Set the root directory for Jupyter Notebooks) missing",
+      "keywords": [
+        "pycharm",
+        "option",
+        "jupyter",
+        "notebook",
+        "file",
+        "root",
+        "set",
+        "root",
+        "directory",
+        "jupyter"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
