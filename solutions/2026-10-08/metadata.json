@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-08",
+  "problem": {
+    "title": "Laravel, How to ignore (except) some fields when update model using json and laravel",
+    "description": "The function below is to update user information, I need to validate if email is not duplicated, also to ignore password if its field left empty, I don't why this function not working! public function update(Request $request, $id) { $this->validate($request->all(), [ 'fname' => 'required', 'email' => 'required|email|unique:users,email,'.$id, 'password' => 'same:confirm-password', 'roles' => 'required' ]); $input = $request->all()->except(['country_id', 'region_id']); if(!empty($input['password']",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/59696881/laravel-how-to-ignore-except-some-fields-when-update-model-using-json-and-lar",
+    "category": "ai_ml",
+    "keywords": [
+      "laravel",
+      "ignore",
+      "except",
+      "fields",
+      "update",
+      "model",
+      "using",
+      "json",
+      "laravel",
+      "function"
+    ],
+    "priority": 20,
+    "created_at": "2020-01-11T17:27:48+00:00",
+    "reason": "Trending problem in ai_ml category"
+  },
+  "solution_type": "json_formatter",
+  "source": "Stack Overflow",
+  "category": "ai_ml"
+}

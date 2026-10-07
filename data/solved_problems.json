@@ -670,6 +670,23 @@
         "jupyter"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-08",
+      "title": "Laravel, How to ignore (except) some fields when update model using json and laravel",
+      "keywords": [
+        "laravel",
+        "ignore",
+        "except",
+        "fields",
+        "update",
+        "model",
+        "using",
+        "json",
+        "laravel",
+        "function"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {
