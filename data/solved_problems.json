@@ -704,6 +704,23 @@
         "json"
       ],
       "type": "json_formatter"
+    },
+    {
+      "date": "2026-10-10",
+      "title": "VS code cannot import local python modules",
+      "keywords": [
+        "code",
+        "cannot",
+        "import",
+        "local",
+        "python",
+        "modules",
+        "project",
+        "files",
+        "code",
+        "suddenly"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {

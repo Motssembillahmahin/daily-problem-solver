@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-10",
+  "problem": {
+    "title": "VS code cannot import local python modules",
+    "description": "All of my project files in VS code suddenly gives an error saying that it cannot import modules (even tho the modules are local i.e same directory and they used to work pretty well before). The code works fine in pycharm but not in VS code, any idea whats going on? Code: from backend.util.crypto_hash import crypto_hash from backend.config import MINE_RATE error: env DEBUGPY_LAUNCHER_PORT=34625 /home/nikhil/python-blockchain/blockchain-env/bin/python /home/nikhil/.vscode/extensions/ms-python.pyth",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/61140297/vs-code-cannot-import-local-python-modules",
+    "category": "webdev",
+    "keywords": [
+      "code",
+      "cannot",
+      "import",
+      "local",
+      "python",
+      "modules",
+      "project",
+      "files",
+      "code",
+      "suddenly"
+    ],
+    "priority": 21,
+    "created_at": "2020-04-10T12:31:25+00:00",
+    "reason": "Trending problem in webdev category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "webdev"
+}
