@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-11",
+  "problem": {
+    "title": "Is there a way to export huge amount of data (more than a million rows) from SQL Server to csv?",
+    "description": "I have no trouble exporting to csv files using ssis when the number of rows is less than 500k. I get the following error when the size gets bigger DT_TEXT, which is not supported with Unicode files. Use DT_NTEXT instead and convert the data to DT_TEXT using the data conversion component.",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/30731670/is-there-a-way-to-export-huge-amount-of-data-more-than-a-million-rows-from-sql",
+    "category": "data",
+    "keywords": [
+      "there",
+      "way",
+      "export",
+      "huge",
+      "amount",
+      "data",
+      "million",
+      "rows",
+      "sql",
+      "server"
+    ],
+    "priority": 20,
+    "created_at": "2015-06-09T12:10:05+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "csv_analyzer",
+  "source": "Stack Overflow",
+  "category": "data"
+}
