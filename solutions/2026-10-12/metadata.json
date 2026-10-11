@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-12",
+  "problem": {
+    "title": "Find potential problems through log files",
+    "description": "If there is a problem in the source code, usually a programmer goes through the log manually and tries to identify the problem in the source code. But is it possible to automate this process? Can we automate the process that would give the potential lines in the source code that was responsible for generating the fault. So, for example: If there is some problem in the log file. Then this automation tool should say that this problem has occurred due to line 30,31,32,35,38 in source code ABC Thank",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/38645374/find-potential-problems-through-log-files",
+    "category": "automation",
+    "keywords": [
+      "find",
+      "potential",
+      "problems",
+      "through",
+      "log",
+      "files",
+      "there",
+      "problem",
+      "source",
+      "code"
+    ],
+    "priority": 20,
+    "created_at": "2016-07-28T19:41:43+00:00",
+    "reason": "Trending problem in automation category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "automation"
+}

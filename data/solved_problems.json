@@ -738,6 +738,23 @@
         "server"
       ],
       "type": "csv_analyzer"
+    },
+    {
+      "date": "2026-10-12",
+      "title": "Find potential problems through log files",
+      "keywords": [
+        "find",
+        "potential",
+        "problems",
+        "through",
+        "log",
+        "files",
+        "there",
+        "problem",
+        "source",
+        "code"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
