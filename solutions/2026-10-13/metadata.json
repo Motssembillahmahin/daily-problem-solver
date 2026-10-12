@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-13",
+  "problem": {
+    "title": "Error running 'filename'. The system cannot find the file specified (PyCharm)",
+    "description": "I have a PyCharm project on my Windows, where I am able to run most .py files by pressing Ctrl + Shift + F10 (or running the debugger). In one of the files however I get the error Error running 'test': Cannot run program \"\\opt\\anaconda\\bin\\python\" (in directory \"...\"): CreateProcess error=2, the system cannot find the file specified.` The test.py file right now only contains print('hello') I can do this for the other files, and using 'Execute selection in console' also works fine. Given I am on ",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/50386050/error-running-filename-the-system-cannot-find-the-file-specified-pycharm",
+    "category": "general",
+    "keywords": [
+      "error",
+      "running",
+      "filename",
+      "system",
+      "cannot",
+      "find",
+      "file",
+      "specified",
+      "pycharm",
+      "pycharm"
+    ],
+    "priority": 22,
+    "created_at": "2018-05-17T07:49:05+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}

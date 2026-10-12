@@ -755,6 +755,23 @@
         "code"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-13",
+      "title": "Error running 'filename'. The system cannot find the file specified (PyCharm)",
+      "keywords": [
+        "error",
+        "running",
+        "filename",
+        "system",
+        "cannot",
+        "find",
+        "file",
+        "specified",
+        "pycharm",
+        "pycharm"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
