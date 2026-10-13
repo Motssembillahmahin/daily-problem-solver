@@ -772,6 +772,23 @@
         "pycharm"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-14",
+      "title": "How to parse json-file with spring batch?",
+      "keywords": [
+        "parse",
+        "json",
+        "file",
+        "spring",
+        "batch",
+        "list",
+        "serialized",
+        "entities",
+        "written",
+        "file"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {
