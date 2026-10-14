@@ -789,6 +789,23 @@
         "file"
       ],
       "type": "json_formatter"
+    },
+    {
+      "date": "2026-10-15",
+      "title": "How to randomly sample very large pyArrow dataset",
+      "keywords": [
+        "randomly",
+        "sample",
+        "large",
+        "pyarrow",
+        "dataset",
+        "large",
+        "arrow",
+        "dataset",
+        "181gb",
+        "30m"
+      ],
+      "type": "csv_analyzer"
     }
   ],
   "metadata": {
