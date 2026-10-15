@@ -806,6 +806,23 @@
         "30m"
       ],
       "type": "csv_analyzer"
+    },
+    {
+      "date": "2026-10-16",
+      "title": "How to do code generation with modern Python packaging?",
+      "keywords": [
+        "code",
+        "generation",
+        "modern",
+        "python",
+        "packaging",
+        "trying",
+        "wrap",
+        "head",
+        "around",
+        "modern"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
