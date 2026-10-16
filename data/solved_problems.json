@@ -823,6 +823,23 @@
         "modern"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-17",
+      "title": "How to get the expansions from a glob pattern to use in another path",
+      "keywords": [
+        "get",
+        "expansions",
+        "glob",
+        "pattern",
+        "use",
+        "another",
+        "path",
+        "problem",
+        "want",
+        "create"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
