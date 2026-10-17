@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-18",
+  "problem": {
+    "title": "Pipreqs: SyntaxError: invalid non-printable character U+FEFF",
+    "description": "When I try to run pipreqs /path/to/project it comes back with File \"<unknown>\", line 1 # !/usr/bin/env python3 ^ SyntaxError: invalid non-printable character U+FEFF my project contains a number of files and all of them contain their own imports. I read somewhere that it could be an issue to create a requirements.txt for a number of files so I tried to move the main file into a new dir and run pipreqs on there but again no success. my imports look like so: #!/usr/bin/env python3 # -*- coding: utf",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/71565071/pipreqs-syntaxerror-invalid-non-printable-character-ufeff",
+    "category": "general",
+    "keywords": [
+      "pipreqs",
+      "syntaxerror",
+      "invalid",
+      "non",
+      "printable",
+      "character",
+      "feff",
+      "try",
+      "run",
+      "pipreqs"
+    ],
+    "priority": 21,
+    "created_at": "2022-03-21T22:52:59+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}

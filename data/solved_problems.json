@@ -840,6 +840,23 @@
         "create"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-18",
+      "title": "Pipreqs: SyntaxError: invalid non-printable character U+FEFF",
+      "keywords": [
+        "pipreqs",
+        "syntaxerror",
+        "invalid",
+        "non",
+        "printable",
+        "character",
+        "feff",
+        "try",
+        "run",
+        "pipreqs"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
