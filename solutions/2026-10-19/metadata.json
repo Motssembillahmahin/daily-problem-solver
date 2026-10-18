@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-19",
+  "problem": {
+    "title": "How to copy a folder into an existing folder using python",
+    "description": "I am new to python, and am currently trying to copy a folder 'foo' (potentially with some files/folders inside) into another existing folder 'bar'. After this, there should be a new path created that should look something like this \"...bar/foo/*\". By copying 'foo' into 'bar' I do not wish to have the original contents in 'bar' to be removed, and the only changes in 'bar' is a new subfolder 'foo' being added. I have tried to search online for the solution, but was not able to find any libraries t",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/72798895/how-to-copy-a-folder-into-an-existing-folder-using-python",
+    "category": "general",
+    "keywords": [
+      "copy",
+      "folder",
+      "into",
+      "existing",
+      "folder",
+      "using",
+      "python",
+      "new",
+      "python",
+      "currently"
+    ],
+    "priority": 20,
+    "created_at": "2022-06-29T09:19:41+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}
