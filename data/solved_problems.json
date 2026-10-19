@@ -874,6 +874,23 @@
         "currently"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-20",
+      "title": "Python can't find function from imported module - first time creating an __init__.py file",
+      "keywords": [
+        "python",
+        "find",
+        "function",
+        "imported",
+        "module",
+        "first",
+        "time",
+        "creating",
+        "__init__",
+        "file"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {

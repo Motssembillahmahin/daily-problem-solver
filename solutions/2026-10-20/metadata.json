@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-20",
+  "problem": {
+    "title": "Python can't find function from imported module - first time creating an __init__.py file",
+    "description": "In main.py I have this line: from core import * . There is a subfolder called core and in that folder I created a bunch of modules to organize my functions. One is called fileManagement.py . It has a couple functions in it including importInputs() . I also created an __init__.py file in the core folder with __all__ = [\"fileManagement\"] . Main.py includes this line: df=importInputs() . All of this worked when everything was in one .py file, but now I get NameError: name 'importInputs' is not defi",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/80010672/python-cant-find-function-from-imported-module-first-time-creating-an-init",
+    "category": "productivity",
+    "keywords": [
+      "python",
+      "find",
+      "function",
+      "imported",
+      "module",
+      "first",
+      "time",
+      "creating",
+      "__init__",
+      "file"
+    ],
+    "priority": 20,
+    "created_at": "2026-10-17T03:55:46+00:00",
+    "reason": "Trending problem in productivity category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "productivity"
+}
