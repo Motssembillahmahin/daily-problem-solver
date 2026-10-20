@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-21",
+  "problem": {
+    "title": "How to generate passwords based on parameters from user input",
+    "description": "Prepared the following code as I am just learning python, based on the user's input how can I use the randint and random.choice functions to extract the number of items from each list and then combine them to generate a unique password? import random print(\"Welcome to Password Generator\") input_1 = int(input(\"please enter how many numbers you need: \")) input_2 = int(input(\"please enter how many alphabets you need: \")) input_3 = int(input(\"please enter how many special characters you need: \")) nu",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/79863492/how-to-generate-passwords-based-on-parameters-from-user-input",
+    "category": "general",
+    "keywords": [
+      "generate",
+      "passwords",
+      "based",
+      "parameters",
+      "user",
+      "input",
+      "prepared",
+      "following",
+      "code",
+      "learning"
+    ],
+    "priority": 21,
+    "created_at": "2026-01-08T15:38:31+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "password_generator",
+  "source": "Stack Overflow",
+  "category": "general"
+}

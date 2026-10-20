@@ -891,6 +891,23 @@
         "file"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-21",
+      "title": "How to generate passwords based on parameters from user input",
+      "keywords": [
+        "generate",
+        "passwords",
+        "based",
+        "parameters",
+        "user",
+        "input",
+        "prepared",
+        "following",
+        "code",
+        "learning"
+      ],
+      "type": "password_generator"
     }
   ],
   "metadata": {
