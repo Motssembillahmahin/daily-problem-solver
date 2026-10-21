@@ -908,6 +908,23 @@
         "learning"
       ],
       "type": "password_generator"
+    },
+    {
+      "date": "2026-10-22",
+      "title": "TypeError: _MailMixin.connect() missing 1 required positional argument: 'self'",
+      "keywords": [
+        "typeerror",
+        "_mailmixin",
+        "connect",
+        "missing",
+        "required",
+        "positional",
+        "argument",
+        "self",
+        "trying",
+        "setup"
+      ],
+      "type": "email_validator"
     }
   ],
   "metadata": {
