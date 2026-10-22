@@ -925,6 +925,23 @@
         "setup"
       ],
       "type": "email_validator"
+    },
+    {
+      "date": "2026-10-23",
+      "title": "How do I store the destination filepath i copied using shutil into a variable",
+      "keywords": [
+        "store",
+        "destination",
+        "filepath",
+        "copied",
+        "using",
+        "shutil",
+        "into",
+        "variable",
+        "problem",
+        "like"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
