@@ -942,6 +942,23 @@
         "like"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-24",
+      "title": "How can I use different output templates for different log levels with Serilog when using appsettings for configuration?",
+      "keywords": [
+        "use",
+        "different",
+        "output",
+        "templates",
+        "different",
+        "log",
+        "levels",
+        "serilog",
+        "using",
+        "appsettings"
+      ],
+      "type": "log_analyzer"
     }
   ],
   "metadata": {

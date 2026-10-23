@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-24",
+  "problem": {
+    "title": "How can I use different output templates for different log levels with Serilog when using appsettings for configuration?",
+    "description": "When using Serilog with .NET, I want to use a different output template for error level logs, since I want the error logs to contain additional information. I'm using the appsettings.json to configure how Serilog behaves, so I need a solution which uses JSON instead of C#. I am able to use \"restrictiedToMinimumLevel\" : \"Error\" to produce error logs with the additional information I want, but this results in the logs appearing twice (once with the extra information, and once without). I've also f",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/80011341/how-can-i-use-different-output-templates-for-different-log-levels-with-serilog-w",
+    "category": "general",
+    "keywords": [
+      "use",
+      "different",
+      "output",
+      "templates",
+      "different",
+      "log",
+      "levels",
+      "serilog",
+      "using",
+      "appsettings"
+    ],
+    "priority": 20,
+    "created_at": "2026-10-20T13:58:38+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "log_analyzer",
+  "source": "Stack Overflow",
+  "category": "general"
+}
