@@ -959,6 +959,23 @@
         "appsettings"
       ],
       "type": "log_analyzer"
+    },
+    {
+      "date": "2026-10-25",
+      "title": "Deleting all files in a folder older than X days",
+      "keywords": [
+        "deleting",
+        "files",
+        "folder",
+        "older",
+        "days",
+        "trying",
+        "write",
+        "python",
+        "script",
+        "delete"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
