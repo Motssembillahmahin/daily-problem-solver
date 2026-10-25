@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-26",
+  "problem": {
+    "title": "Is there a way to include a comment in an f-string?",
+    "description": "It would be useful for mo to include a comment in an f-string. For instance, take this code: f\"\"\" <a href=\"{ escape(url) }\" target=\"_blank\" { # users expect link to open in new tab } >bla</a> \"\"\" It would be nice if this code was equivalent to: f\"\"\" <a href=\"{ escape(url) }\" target=\"_blank\" >bla</a> \"\"\" You can include full Python expressions in between the curly brackets, but it looks like you can't include comments. Am I correct? Is there a way to do this?",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/61972492/is-there-a-way-to-include-a-comment-in-an-f-string",
+    "category": "general",
+    "keywords": [
+      "there",
+      "way",
+      "include",
+      "comment",
+      "string",
+      "useful",
+      "include",
+      "comment",
+      "string",
+      "instance"
+    ],
+    "priority": 21,
+    "created_at": "2020-05-23T13:06:15+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "url_shortener",
+  "source": "Stack Overflow",
+  "category": "general"
+}

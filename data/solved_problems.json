@@ -976,6 +976,23 @@
         "delete"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-26",
+      "title": "Is there a way to include a comment in an f-string?",
+      "keywords": [
+        "there",
+        "way",
+        "include",
+        "comment",
+        "string",
+        "useful",
+        "include",
+        "comment",
+        "string",
+        "instance"
+      ],
+      "type": "url_shortener"
     }
   ],
   "metadata": {
