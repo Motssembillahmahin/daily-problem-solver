@@ -993,6 +993,23 @@
         "instance"
       ],
       "type": "url_shortener"
+    },
+    {
+      "date": "2026-10-27",
+      "title": "shutil.rmtree to remove readonly files",
+      "keywords": [
+        "shutil",
+        "rmtree",
+        "remove",
+        "readonly",
+        "files",
+        "want",
+        "use",
+        "shutil",
+        "rmtree",
+        "python"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
