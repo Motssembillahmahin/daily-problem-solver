@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-28",
+  "problem": {
+    "title": "Load Data Infile OPTIONALLY ENCLOSED BY not working as expected",
+    "description": "Many related tickets and tut sites but unfortunately no solutions have worked for me so far, couple hours stuck on this. I have many csv files I need to insert into a mysql db, using 'load in file' does it very quickly and easily. However, it stumbles on one section: Sample csv line: ABSOLUTE,Glenn,Anakie,\"Cool Synd, Super Cool\" Code I'm using is: $q = \"load data infile '$file' into table $table FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\\\"' LINES TERMINATED BY '\\n';\"; mysql_query($q, $db)",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/35478520/load-data-infile-optionally-enclosed-by-not-working-as-expected",
+    "category": "data",
+    "keywords": [
+      "load",
+      "data",
+      "infile",
+      "optionally",
+      "enclosed",
+      "working",
+      "expected",
+      "many",
+      "related",
+      "tickets"
+    ],
+    "priority": 20,
+    "created_at": "2016-02-18T10:13:03+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "data"
+}

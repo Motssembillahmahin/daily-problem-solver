@@ -1010,6 +1010,23 @@
         "python"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-28",
+      "title": "Load Data Infile OPTIONALLY ENCLOSED BY not working as expected",
+      "keywords": [
+        "load",
+        "data",
+        "infile",
+        "optionally",
+        "enclosed",
+        "working",
+        "expected",
+        "many",
+        "related",
+        "tickets"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
