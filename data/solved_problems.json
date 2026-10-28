@@ -1027,6 +1027,23 @@
         "tickets"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-10-29",
+      "title": "Find the maximum value per group from a CSV file",
+      "keywords": [
+        "find",
+        "maximum",
+        "value",
+        "per",
+        "group",
+        "csv",
+        "file",
+        "csv",
+        "file",
+        "columns"
+      ],
+      "type": "csv_analyzer"
     }
   ],
   "metadata": {
