@@ -1044,6 +1044,23 @@
         "columns"
       ],
       "type": "csv_analyzer"
+    },
+    {
+      "date": "2026-10-30",
+      "title": "How can I fix my perceptron to recognize numbers?",
+      "keywords": [
+        "fix",
+        "perceptron",
+        "recognize",
+        "numbers",
+        "exercise",
+        "train",
+        "perceptrons",
+        "recognize",
+        "numbers",
+        "perceptron"
+      ],
+      "type": "health_tracker"
     }
   ],
   "metadata": {
