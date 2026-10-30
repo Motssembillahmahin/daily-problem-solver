@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-31",
+  "problem": {
+    "title": "smtplib: ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid",
+    "description": "I'm try to send an email in python usign the library smtplib. But I have this error: ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'smtp.mydomain.es'. (_ssl.c:1129) import smtplib, ssl context = ssl.create_default_context() server = smtplib.SMTP('smtp.mydomain.es', 587) server.ehlo() server.starttls(context=context) server.ehlo() server.login('email@mydomain.es', 'mypassword') How can I solve this error?",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/71406592/smtplib-ssl-sslcertverificationerror-ssl-certificate-verify-failed-certific",
+    "category": "devops",
+    "keywords": [
+      "smtplib",
+      "ssl",
+      "sslcertverificationerror",
+      "ssl",
+      "certificate_verify_failed",
+      "certificate",
+      "verify",
+      "failed",
+      "hostname",
+      "mismatch"
+    ],
+    "priority": 20,
+    "created_at": "2022-03-09T08:51:11+00:00",
+    "reason": "Trending problem in devops category"
+  },
+  "solution_type": "email_validator",
+  "source": "Stack Overflow",
+  "category": "devops"
+}

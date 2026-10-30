@@ -1061,6 +1061,23 @@
         "perceptron"
       ],
       "type": "health_tracker"
+    },
+    {
+      "date": "2026-10-31",
+      "title": "smtplib: ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid",
+      "keywords": [
+        "smtplib",
+        "ssl",
+        "sslcertverificationerror",
+        "ssl",
+        "certificate_verify_failed",
+        "certificate",
+        "verify",
+        "failed",
+        "hostname",
+        "mismatch"
+      ],
+      "type": "email_validator"
     }
   ],
   "metadata": {
