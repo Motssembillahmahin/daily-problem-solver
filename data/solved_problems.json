@@ -1078,6 +1078,23 @@
         "mismatch"
       ],
       "type": "email_validator"
+    },
+    {
+      "date": "2026-11-01",
+      "title": "Vipermonkey/ cannot import \"from logger import log\" and \"from core.meta import get_metadata.exif\" error. How can I solve them?",
+      "keywords": [
+        "vipermonkey",
+        "cannot",
+        "import",
+        "logger",
+        "import",
+        "log",
+        "core",
+        "meta",
+        "import",
+        "get_metadata"
+      ],
+      "type": "log_analyzer"
     }
   ],
   "metadata": {
