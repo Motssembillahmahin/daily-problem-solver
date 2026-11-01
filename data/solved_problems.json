@@ -1095,6 +1095,23 @@
         "get_metadata"
       ],
       "type": "log_analyzer"
+    },
+    {
+      "date": "2026-11-02",
+      "title": "Postman Request body data from Excel / CSV file - forward slash",
+      "keywords": [
+        "postman",
+        "request",
+        "body",
+        "data",
+        "excel",
+        "csv",
+        "file",
+        "forward",
+        "slash",
+        "get"
+      ],
+      "type": "csv_analyzer"
     }
   ],
   "metadata": {

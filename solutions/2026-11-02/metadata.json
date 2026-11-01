@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-02",
+  "problem": {
+    "title": "Postman Request body data from Excel / CSV file - forward slash",
+    "description": "I get request body data from Excel file. I have already coverted it from Excel to CSV format. I am kind of able to find a solution but it is not working 100% as jsonbody format is not fetching data correctly. It shows a forward slash in CSV import data from runner collections. Request Body {{jsonBody}} Set Global variables jsonBody Running collection select data file as CSV file as per the screenshot request body shows it with a forward slash. After running the collection I'm getting the incorre",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/68010002/postman-request-body-data-from-excel-csv-file-forward-slash",
+    "category": "data",
+    "keywords": [
+      "postman",
+      "request",
+      "body",
+      "data",
+      "excel",
+      "csv",
+      "file",
+      "forward",
+      "slash",
+      "get"
+    ],
+    "priority": 20,
+    "created_at": "2021-06-16T21:05:25+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "csv_analyzer",
+  "source": "Stack Overflow",
+  "category": "data"
+}
