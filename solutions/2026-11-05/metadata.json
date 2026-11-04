@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-05",
+  "problem": {
+    "title": "How to fix Fortify Path Manipulation ( Input Validation and Representation , Data Flow ) vulnerability",
+    "description": "I am getting fortify path manipulation vulnerability for creating a file with new keyword I have tried to sanitize the path before passing it to File object, but the problem persists. Tried this link also: https://www.securecoding.cert.org/confluence/display/java/FIO00-J.+Do+not+operate+on+files+in+shared+directories public static String sanitizePath(String sUnsanitized) throws URISyntaxException, EncodingException { String sSanitized = SAPI.encoder().canonicalize(sUnsanitized); return sSanitize",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/55823435/how-to-fix-fortify-path-manipulation-input-validation-and-representation-dat",
+    "category": "security",
+    "keywords": [
+      "fix",
+      "fortify",
+      "path",
+      "manipulation",
+      "input",
+      "validation",
+      "representation",
+      "data",
+      "flow",
+      "vulnerability"
+    ],
+    "priority": 20,
+    "created_at": "2019-04-24T06:11:50+00:00",
+    "reason": "Trending problem in security category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "security"
+}

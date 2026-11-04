@@ -1146,6 +1146,23 @@
         "solved"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-05",
+      "title": "How to fix Fortify Path Manipulation ( Input Validation and Representation , Data Flow ) vulnerability",
+      "keywords": [
+        "fix",
+        "fortify",
+        "path",
+        "manipulation",
+        "input",
+        "validation",
+        "representation",
+        "data",
+        "flow",
+        "vulnerability"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
