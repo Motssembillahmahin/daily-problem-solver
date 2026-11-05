@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-06",
+  "problem": {
+    "title": "How do I prompt for a file without uploading it in HTML",
+    "description": "I have some legacy html code, (actually created by a python script), that I am maintaining that prompts the user to enter various fields in a table. Then, upon Submit, those fields are written to a Mongodb database. One of the fields is a file name. The Problem: The file name entry field uses an input type=\"file\" When the data (file name) is pulled from the form, the file starts uploading. I don't need the file, just the file name. Some of the files selected are many gigabytes long and with a sl",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/80014992/how-do-i-prompt-for-a-file-without-uploading-it-in-html",
+    "category": "data",
+    "keywords": [
+      "prompt",
+      "file",
+      "without",
+      "uploading",
+      "html",
+      "legacy",
+      "html",
+      "code",
+      "actually",
+      "created"
+    ],
+    "priority": 20,
+    "created_at": "2026-11-05T21:39:45+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "data"
+}

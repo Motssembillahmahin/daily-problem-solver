@@ -1163,6 +1163,23 @@
         "vulnerability"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-06",
+      "title": "How do I prompt for a file without uploading it in HTML",
+      "keywords": [
+        "prompt",
+        "file",
+        "without",
+        "uploading",
+        "html",
+        "legacy",
+        "html",
+        "code",
+        "actually",
+        "created"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
