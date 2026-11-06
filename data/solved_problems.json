@@ -1180,6 +1180,23 @@
         "created"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-07",
+      "title": "Check share point if file exists in a shared document folder with power automate",
+      "keywords": [
+        "check",
+        "share",
+        "point",
+        "file",
+        "exists",
+        "shared",
+        "document",
+        "folder",
+        "power",
+        "automate"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
