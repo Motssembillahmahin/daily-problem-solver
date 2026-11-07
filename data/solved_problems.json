@@ -1197,6 +1197,23 @@
         "automate"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-08",
+      "title": "Installing Anaconda on Windows 10: Something went wrong during the installation, and conda cannot be found",
+      "keywords": [
+        "installing",
+        "anaconda",
+        "windows",
+        "something",
+        "went",
+        "wrong",
+        "during",
+        "installation",
+        "conda",
+        "cannot"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {

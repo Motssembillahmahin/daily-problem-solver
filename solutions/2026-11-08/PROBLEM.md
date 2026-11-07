@@ -1,0 +1,17 @@
+# Problem: Installing Anaconda on Windows 10: Something went wrong during the installation, and conda cannot be found
+
+**Date:** 2026-11-08
+
+**Source:** Stack Overflow
+
+**Category:** productivity
+
+**Why Selected:** Trending problem in productivity category
+
+## Description
+
+I'm trying to install Anaconda on a Windows 10 laptop at work. For some reason, the installation always fails: I can see the Anaconda prompt, but no trace of Anaconda Navigator, Spyder, etc. Every time I type where conda in the command prompt or the Anaconda prompt I always get the following message: INFO: Could not find files for the given pattern(s). And every time I try to use a conda command, I get: 'conda' is not recognized as an internal or external command, operable program or batch file.
+
+## Original URL
+
+https://stackoverflow.com/questions/53448945/installing-anaconda-on-windows-10-something-went-wrong-during-the-installation
