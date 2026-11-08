@@ -1214,6 +1214,23 @@
         "cannot"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-09",
+      "title": "Edit package installed by pip",
+      "keywords": [
+        "edit",
+        "package",
+        "installed",
+        "pip",
+        "trying",
+        "edit",
+        "package",
+        "installed",
+        "via",
+        "pip"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {

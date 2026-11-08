@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-09",
+  "problem": {
+    "title": "Edit package installed by pip",
+    "description": "I'm trying to edit a package that I installed via pip, called py_mysql2pgsql (I had an error when converting my db from mysql to postgre, just like this . However, when I got to the folder /user/local/lib/python2.7/dist-packages/py_mysql2pgsql-0.1.5.egg-info, I cannot find the source code for the package. I only find PKG-INFO and text files. How can I find the actual source code for a package (or in particular, this package)? Thanks",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/37668773/edit-package-installed-by-pip",
+    "category": "general",
+    "keywords": [
+      "edit",
+      "package",
+      "installed",
+      "pip",
+      "trying",
+      "edit",
+      "package",
+      "installed",
+      "via",
+      "pip"
+    ],
+    "priority": 21,
+    "created_at": "2016-06-07T00:29:43+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}
