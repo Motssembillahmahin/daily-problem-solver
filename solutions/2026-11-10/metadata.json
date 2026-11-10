@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-10",
+  "problem": {
+    "title": "Pickle encoding utf-8 issue",
+    "description": "I'm trying to pickle a pandas dataframe to my local directory so I can work on it in another jupyter notebook. The write appears to go successful at first but when trying to read it in a new jupyter notebook the read is unsuccessful. When I open the pickle file I appear to have wrote, the file's only contents are: Error! /Users/.../income.pickle is not UTF-8 encoded Saving disabled. See console for more details. I also checked and the pickle file itself is only a few kilobytes. Here's my code fo",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/57022703/pickle-encoding-utf-8-issue",
+    "category": "general",
+    "keywords": [
+      "pickle",
+      "encoding",
+      "utf",
+      "issue",
+      "trying",
+      "pickle",
+      "pandas",
+      "dataframe",
+      "local",
+      "directory"
+    ],
+    "priority": 20,
+    "created_at": "2019-07-13T20:46:30+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}
