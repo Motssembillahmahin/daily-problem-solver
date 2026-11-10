@@ -1248,6 +1248,23 @@
         "directory"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-11",
+      "title": "Python Edgar package - get CIK number",
+      "keywords": [
+        "python",
+        "edgar",
+        "package",
+        "get",
+        "cik",
+        "number",
+        "reading",
+        "filings",
+        "sec",
+        "edgar"
+      ],
+      "type": "csv_analyzer"
     }
   ],
   "metadata": {
