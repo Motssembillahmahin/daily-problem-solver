@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-12",
+  "problem": {
+    "title": "How can I dynamically log as the program runs?",
+    "description": "My logging creates a StreamWriter and FileStream : //Activate Logging try { streamer = new FileStream(\"filepath and name\", FileMode.OpenOrCreate, FileAccess.Write); writer = new StreamWriter(streamer); } I use parameters to create the file name. If an error occurs before this file is created I create another file called \"crashlog\", which logs the error itself. However, this file is sometimes empty. If an unhandled error occurs, even if the original logfile is created, that file is empty. I belie",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/79810553/how-can-i-dynamically-log-as-the-program-runs",
+    "category": "general",
+    "keywords": [
+      "dynamically",
+      "log",
+      "program",
+      "runs",
+      "logging",
+      "creates",
+      "streamwriter",
+      "filestream",
+      "activate",
+      "logging"
+    ],
+    "priority": 20,
+    "created_at": "2025-11-05T20:01:02+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "log_analyzer",
+  "source": "Stack Overflow",
+  "category": "general"
+}

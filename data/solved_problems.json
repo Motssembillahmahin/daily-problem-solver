@@ -1265,6 +1265,23 @@
         "edgar"
       ],
       "type": "csv_analyzer"
+    },
+    {
+      "date": "2026-11-12",
+      "title": "How can I dynamically log as the program runs?",
+      "keywords": [
+        "dynamically",
+        "log",
+        "program",
+        "runs",
+        "logging",
+        "creates",
+        "streamwriter",
+        "filestream",
+        "activate",
+        "logging"
+      ],
+      "type": "log_analyzer"
     }
   ],
   "metadata": {
