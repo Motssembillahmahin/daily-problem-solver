@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-13",
+  "problem": {
+    "title": "How to write or append string in loop in a file in java?",
+    "description": "I'm having memory problem as working with very large dataset and getting memory leaks with char[] and Strings, don't know why! So I am thinking of writing some processed data in a file and not store in memory. So, I want to write texts from an arrayList in a file using a loop. First the program will check if the specific file already exist in the current working directory and if not then create a file with the specific name and start writing texts from the arrayList line by line using a loop; an",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/11067162/how-to-write-or-append-string-in-loop-in-a-file-in-java",
+    "category": "data",
+    "keywords": [
+      "write",
+      "append",
+      "string",
+      "loop",
+      "file",
+      "java",
+      "having",
+      "memory",
+      "problem",
+      "working"
+    ],
+    "priority": 20,
+    "created_at": "2012-06-16T21:29:03+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "data"
+}

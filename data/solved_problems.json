@@ -1282,6 +1282,23 @@
         "logging"
       ],
       "type": "log_analyzer"
+    },
+    {
+      "date": "2026-11-13",
+      "title": "How to write or append string in loop in a file in java?",
+      "keywords": [
+        "write",
+        "append",
+        "string",
+        "loop",
+        "file",
+        "java",
+        "having",
+        "memory",
+        "problem",
+        "working"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
