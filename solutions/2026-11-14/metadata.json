@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-14",
+  "problem": {
+    "title": "Visual Studio Code doesn't find my python file. [Errno 2] No such file or directory",
+    "description": "I'm struggling with a Visual Studio Code python compiler. Whenever I try to run the code it says python: can't open file 'c:\\Users\\User\\Desktop\\Programowasko\\Python\\Cybepunk encounter calculator\\cyberpunk.py': [Errno 2] No such file or directory The only code which is written there is print(\"Hello World\") by now. Also any other code which has recently worked, now it doesn't.",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/66849923/visual-studio-code-doesnt-find-my-python-file-errno-2-no-such-file-or-direct",
+    "category": "general",
+    "keywords": [
+      "visual",
+      "studio",
+      "code",
+      "doesn",
+      "find",
+      "python",
+      "file",
+      "errno",
+      "file",
+      "directory"
+    ],
+    "priority": 20,
+    "created_at": "2021-03-29T07:02:51+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}
