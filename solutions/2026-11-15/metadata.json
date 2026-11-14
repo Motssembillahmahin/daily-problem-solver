@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-15",
+  "problem": {
+    "title": "Excel VBA - Getting error when opening files",
+    "description": "I have a piece of code that opens all files in folder X. For some apparently random files, it can't open them. However, if I open them manually, save, close and re-run the code, everything works. Why is that? Set wbRFQ = Workbooks.Open( _ Filename:=CStr(File), _ ReadOnly:=True, _ UpdateLinks:=0)",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/80016467/excel-vba-getting-error-when-opening-files",
+    "category": "general",
+    "keywords": [
+      "excel",
+      "vba",
+      "getting",
+      "error",
+      "opening",
+      "files",
+      "piece",
+      "code",
+      "opens",
+      "files"
+    ],
+    "priority": 19,
+    "created_at": "2026-11-13T11:05:45+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}

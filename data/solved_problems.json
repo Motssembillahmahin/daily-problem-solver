@@ -1316,6 +1316,23 @@
         "directory"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-15",
+      "title": "Excel VBA - Getting error when opening files",
+      "keywords": [
+        "excel",
+        "vba",
+        "getting",
+        "error",
+        "opening",
+        "files",
+        "piece",
+        "code",
+        "opens",
+        "files"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
