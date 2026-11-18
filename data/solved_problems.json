@@ -1333,6 +1333,23 @@
         "files"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-18",
+      "title": "How to solve `npm i package` and Vscode Default Formatter conflict",
+      "keywords": [
+        "solve",
+        "npm",
+        "package",
+        "vscode",
+        "default",
+        "formatter",
+        "conflict",
+        "run",
+        "npm",
+        "package"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {
