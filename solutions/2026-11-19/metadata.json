@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-19",
+  "problem": {
+    "title": "Recover postgreSQL databases from raw physical files",
+    "description": "I have the following problem and I need to know if there´s a way to fix it. I have a client who was cheap enough to decline buying a backup plan for his postgreSQL databases on the main system that runs his company and as I thought it would happen some day, some OS files crashed during a blackout and the OS needs to be reinstalled. This client didn't have any backups of the databases but I managed to save the PostgreSQL main directory. I read that the databases are stored somehow inside the data",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/3305961/recover-postgresql-databases-from-raw-physical-files",
+    "category": "data",
+    "keywords": [
+      "recover",
+      "postgresql",
+      "databases",
+      "raw",
+      "physical",
+      "files",
+      "following",
+      "problem",
+      "need",
+      "know"
+    ],
+    "priority": 24,
+    "created_at": "2010-07-22T05:17:41+00:00",
+    "reason": "Trending problem in data category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "data"
+}

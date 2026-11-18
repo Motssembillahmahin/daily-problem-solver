@@ -1350,6 +1350,23 @@
         "package"
       ],
       "type": "json_formatter"
+    },
+    {
+      "date": "2026-11-19",
+      "title": "Recover postgreSQL databases from raw physical files",
+      "keywords": [
+        "recover",
+        "postgresql",
+        "databases",
+        "raw",
+        "physical",
+        "files",
+        "following",
+        "problem",
+        "need",
+        "know"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
