@@ -1367,6 +1367,23 @@
         "know"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-20",
+      "title": "In Django REST Framework, why does raising serializers.ValidationError return errors in different format in validate() and create() methods?",
+      "keywords": [
+        "django",
+        "rest",
+        "framework",
+        "raising",
+        "serializers",
+        "validationerror",
+        "return",
+        "errors",
+        "different",
+        "format"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {
