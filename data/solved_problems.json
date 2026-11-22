@@ -1384,6 +1384,23 @@
         "format"
       ],
       "type": "json_formatter"
+    },
+    {
+      "date": "2026-11-23",
+      "title": "How to retrieve PID from windows event log?",
+      "keywords": [
+        "retrieve",
+        "pid",
+        "windows",
+        "event",
+        "log",
+        "python",
+        "code",
+        "uses",
+        "wmi",
+        "module"
+      ],
+      "type": "log_analyzer"
     }
   ],
   "metadata": {

@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-23",
+  "problem": {
+    "title": "How to retrieve PID from windows event log?",
+    "description": "I have a python code that uses WMI module of python to get windows event viewer logs. But I am unable to retrieve the PID of the process that generated the log. My code : wmi_obj = wmi.WMI('.') #Initialize WMI object and query. wmi_query = \"SELECT * FROM Win32_NTLogEvent WHERE Logfile='System' AND EventType=1\" query_result = wmi_obj.query(wmi_query) # Query WMI object query_result is a list of wmi objects. Each object in this list is a windows system log and I want PID of the process that genera",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/39997471/how-to-retrieve-pid-from-windows-event-log",
+    "category": "general",
+    "keywords": [
+      "retrieve",
+      "pid",
+      "windows",
+      "event",
+      "log",
+      "python",
+      "code",
+      "uses",
+      "wmi",
+      "module"
+    ],
+    "priority": 20,
+    "created_at": "2016-10-12T11:29:24+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "log_analyzer",
+  "source": "Stack Overflow",
+  "category": "general"
+}
