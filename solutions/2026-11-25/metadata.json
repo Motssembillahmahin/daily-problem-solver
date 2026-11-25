@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-25",
+  "problem": {
+    "title": "Why isn't the Flask-Login current_user.is_authenticated consistent?",
+    "description": "I have an Angular app that is making API calls to the backend Flask app. The Flask app is using Flask-Login to authenticate users when they login. When the user logs in with the login() function I defined, current_user.is_authenticated returns True . When I call another function called get_is_logged_in() , current_user.is_authenticated returns False . My User class inherits from UserMixin , so it has all of the required properties and methods as explained in the documentation ( https://flask-log",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/54431408/why-isnt-the-flask-login-current-user-is-authenticated-consistent",
+    "category": "webdev",
+    "keywords": [
+      "isn",
+      "flask",
+      "login",
+      "current_user",
+      "is_authenticated",
+      "consistent",
+      "angular",
+      "app",
+      "making",
+      "api"
+    ],
+    "priority": 20,
+    "created_at": "2019-01-29T23:53:03+00:00",
+    "reason": "Trending problem in webdev category"
+  },
+  "solution_type": "log_analyzer",
+  "source": "Stack Overflow",
+  "category": "webdev"
+}

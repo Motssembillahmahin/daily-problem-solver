@@ -1401,6 +1401,23 @@
         "module"
       ],
       "type": "log_analyzer"
+    },
+    {
+      "date": "2026-11-25",
+      "title": "Why isn't the Flask-Login current_user.is_authenticated consistent?",
+      "keywords": [
+        "isn",
+        "flask",
+        "login",
+        "current_user",
+        "is_authenticated",
+        "consistent",
+        "angular",
+        "app",
+        "making",
+        "api"
+      ],
+      "type": "log_analyzer"
     }
   ],
   "metadata": {
