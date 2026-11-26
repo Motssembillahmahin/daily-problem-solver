@@ -1418,6 +1418,23 @@
         "api"
       ],
       "type": "log_analyzer"
+    },
+    {
+      "date": "2026-11-26",
+      "title": "How can I set a permanent default indentation for Python files to X spaces?",
+      "keywords": [
+        "set",
+        "permanent",
+        "default",
+        "indentation",
+        "python",
+        "files",
+        "spaces",
+        "searched",
+        "find",
+        "solution"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {

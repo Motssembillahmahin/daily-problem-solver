@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-26",
+  "problem": {
+    "title": "How can I set a permanent default indentation for Python files to X spaces?",
+    "description": "I have searched to find a solution for (Astro)N(eo)vim, and it is commonly suggested to set a tab equivalent to a default number of blank characters. However, I have observed that even if I set these variables in a configuration file, vim.opt.tabstop = 2 vim.opt.softtabstop = 2 vim.opt.shiftwidth = 2 Unfortunately, for Python files a separate additional line is needed: vim.cmd [[autocmd FileType python set shiftwidth=2 tabstop=2 expandtab]] If this line is not provided, e.g the tabstop option is",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/80018249/how-can-i-set-a-permanent-default-indentation-for-python-files-to-x-spaces",
+    "category": "general",
+    "keywords": [
+      "set",
+      "permanent",
+      "default",
+      "indentation",
+      "python",
+      "files",
+      "spaces",
+      "searched",
+      "find",
+      "solution"
+    ],
+    "priority": 20,
+    "created_at": "2026-11-23T10:30:49+00:00",
+    "reason": "Trending problem in general category"
+  },
+  "solution_type": "file_organizer",
+  "source": "Stack Overflow",
+  "category": "general"
+}
