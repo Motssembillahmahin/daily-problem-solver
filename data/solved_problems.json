@@ -1435,6 +1435,23 @@
         "solution"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-27",
+      "title": "tensorflow: Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found",
+      "keywords": [
+        "tensorflow",
+        "load",
+        "dynamic",
+        "library",
+        "cudnn64_8",
+        "dll",
+        "dlerror",
+        "cudnn64_8",
+        "dll",
+        "found"
+      ],
+      "type": "file_organizer"
     }
   ],
   "metadata": {
