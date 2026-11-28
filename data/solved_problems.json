@@ -1452,6 +1452,23 @@
         "found"
       ],
       "type": "file_organizer"
+    },
+    {
+      "date": "2026-11-28",
+      "title": "Cannot deserialize value of type `java.util.LinkedHashMap<java.lang.String,java.lang.String>` from Array or what would be a correct type of my field",
+      "keywords": [
+        "cannot",
+        "deserialize",
+        "value",
+        "type",
+        "java",
+        "util",
+        "linkedhashmap",
+        "java",
+        "lang",
+        "string"
+      ],
+      "type": "json_formatter"
     }
   ],
   "metadata": {
